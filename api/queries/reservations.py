@@ -28,11 +28,11 @@ class ReservationOut(BaseModel):
 class Reservationrepository:
     def create(self, reservation: ReservationIn) -> ReservationOut:
         # connect to database
-            with pool.connection() as conn:
+        with pool.connection() as conn:
             # get cursor
-                with conn.cursor() as db:
+            with conn.cursor() as db:
                 # run insert statment
-                  result =  db.execute(
+                result =  db.execute(
                          """
                         INSERT INTO reservation
                             (first_name, last_name, phone_number, email, jumper_type, date, time)

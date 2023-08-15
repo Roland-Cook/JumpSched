@@ -6,17 +6,17 @@ class DuplicateAccountError(ValueError):
 
 
 class AccountIn(BaseModel):
-    email: str
     password: str
     first_name: str
     last_name: str
+    email: str
     username: str
 
 class AccountOut(BaseModel):
     id: str
-    email: str
     first_name: str
     last_name: str
+    email: str
     username: str
 
 class AccountOutWithPassword(AccountOut):
@@ -25,43 +25,44 @@ class AccountOutWithPassword(AccountOut):
 
 class AccountQueries:
     try:
-        def get(self, email: str) -> AccountOut:
+        def get(self, email: str) -> AccountOutWithPassword:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        Select id,
-                        first_name,
-                        last_name,
-                        hashed_password,
-                        email,
-                        username
-                    From account
+                        SELECT id,
+                            first_name,
+                            last_name,
+                            hashed_password,
+                            email,
+                            username
+                    FROM account
                     WHERE email = %s
                         """,
                         [email]
                     )
-                    record = result.fetchone()[0]
+                    record = result.fetchone()
                     if record is None:
                         return None
                     account = AccountOutWithPassword(
                             id=record[0],
-                            email=record[1],
-                            first_name=record[2],
-                            last_name=record[3],
-                            username=record[4]
+                            first_name=record[1],
+                            last_name=record[2],
+                            hashed_password=record[3],
+                            email=record[4],
+                            username=record[5]
                         )
                     return account
     except Exception as e:
         print(e)
-        
 
 
 
 
 
 
-    def create(self, account: AccountIn, hashed_password: str) -> AccountOut:
+
+    def create(self, account: AccountIn, hashed_password: str) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -75,8 +76,8 @@ class AccountQueries:
                     [
                         account.first_name,
                         account.last_name,
-                        hashed_password,
                         account.email,
+                        hashed_password,
                         account.username,
                     ]
                 )

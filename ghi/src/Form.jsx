@@ -1,15 +1,13 @@
 function Form(props) {
   const submitForm = async (e) => {
     e.preventDefault();
-    console.log(e.target.freejump.checked);
+    console.log(e.target.freejump);
     const formValues = {
       first_name: e.target.first_name.value,
       last_name: e.target.last_name.value,
       phone_number: e.target.phone_number.value,
       email: e.target.email.value,
-      tandem: e.target.tandem.checked,
-      student: e.target.student.checked,
-      freejump: e.target.freejump.checked,
+      jumper_type: e.target.jumper_type.value,
       date: e.target.date.value,
       time: e.target.time.value,
     };
@@ -39,12 +37,10 @@ function Form(props) {
       <input type="text" name="phone_number" />
       <label htmlFor="">Email</label>
       <input type="text" name="email" />
-      <label htmlFor="">Tandem</label>
-      <input type="checkbox" name="tandem" />
-      <label htmlFor="">Student</label>
-      <input type="checkbox" name="student" />
-      <label htmlFor="">Free Jump</label>
-      <input type="checkbox" name="freejump" />
+
+      <label htmlFor="">jumper</label>
+      <input type="text" name="jumper_type"/>
+
       <label htmlFor="">Date</label>
       <input type="date" name="date" />
       <label htmlFor="">Time</label>

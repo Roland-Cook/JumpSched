@@ -1,6 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 # from auth import User, get_current_user
-from queries.reservations import ReservationIn, Reservationrepository
+from queries.reservations import ReservationIn, Reservationrepository, ReservationOut
+from typing import Optional, List, Union
+
 
 # import databases
 
@@ -23,6 +25,12 @@ def create_reservation(
         repo: Reservationrepository = Depends()
 ):
         return repo.create(reservation)
+
+@router.get("/reservation", response_model=List[ReservationOut])
+def get_all(
+        repo:Reservationrepository = Depends(),
+):
+        return repo.get_all()
 
 
 

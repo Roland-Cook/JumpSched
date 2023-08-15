@@ -24,15 +24,32 @@ class AccountOutWithPassword(AccountOut):
 
 
 class AccountQueries:
-    # def get(self, email: str) -> AccountOut:
-    #     pass
+    def get(self, email: str) -> AccountOut:
+        with pool.connection() as conn:
+            with conn.cursor() as db:
+                result = db.execute(
+                    """
+                    Select id,
+                    first_name,
+                    last_name,
+                    hashed_password,
+                    email,
+                    username
+                From account
+                Where email = %s
+                    """,
+                    [email]
+                )
+                record = result.fetchone()[0]
+                
+
 
     def create(self, account: AccountIn, hashed_password: str) -> AccountOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
-                result =  db.execute(
+                result = db.execute(
                         """
-                    INSERT INTO reservation
+                    INSERT INTO account
                         (first_name, last_name, email, hashed_password, username)
                     VALUES
                         (%s,%s,%s,%s,%s)

@@ -11,7 +11,7 @@ class ReservationIn(BaseModel):
     last_name: str
     phone_number: str
     email: str
-    jumper_type: Jumper
+    jumper_type: str
     date: date
     time: time
 
@@ -21,7 +21,7 @@ class ReservationOut(BaseModel):
     last_name: str
     phone_number: str
     email: str
-    jumper_type: Jumper
+    jumper_type: str
     date: date
     time: time
 

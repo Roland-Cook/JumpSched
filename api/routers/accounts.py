@@ -56,10 +56,17 @@ async def create_account(
 
 
 @router.get("/accounts/all", response_model=List[AccountOut])
-def get_all_test(
+def get_all_accounts(
     accounts: AccountQueries = Depends(),
 ):
     return accounts.get_all_accounts()
+
+@router.get("/accounts/{email}", response_model=AccountOut)
+def get_account(
+    email: str,
+    accounts: AccountQueries = Depends(),
+) -> bool:
+    return accounts.get(email)
 
 
 @router.delete("/accounts/{account_id}", response_model=bool)

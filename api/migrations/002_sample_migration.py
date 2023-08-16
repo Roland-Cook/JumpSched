@@ -8,7 +8,7 @@ steps = [
             last_name VARCHAR(100) NOT NULL,
             phone_number VARCHAR(100) NOT NULL,
             email VARCHAR(100) NOT NULL,
-            jumper_type TEXT NOT NULL,
+            jumper_type TEXT NOT NULL check(jumper_type = 'fun_jumper' or jumper_type = 'tandem' or jumper_type = 'student'),
             date DATE NOT NULL,
             time TIME NOT NULL
         );

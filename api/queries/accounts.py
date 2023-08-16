@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from queries.pool import pool
+from typing import Optional, List, Union
 
 class DuplicateAccountError(ValueError):
     pass
@@ -56,12 +57,6 @@ class AccountQueries:
     except Exception as e:
         print(e)
 
-
-
-
-
-
-
     def create(self, account: AccountIn, hashed_password: str) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
@@ -84,3 +79,46 @@ class AccountQueries:
                 id = result.fetchone()[0]
                 data = account.dict()
                 return AccountOutWithPassword(id=id, **data, hashed_password=hashed_password)
+
+
+    def get_all_accounts(self) -> Union[Exception, List[AccountOutWithPassword]]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, first_name, last_name, email, hashed_password, username
+                        FROM account
+                        ORDER BY first_name
+                        """
+                        )
+                    result = []
+                    for record in db:
+                        account = AccountOutWithPassword(
+                            id=record[0],
+                            first_name=record[1],
+                            last_name=record[2],
+                            hashed_password=record[3],
+                            email=record[4],
+                            username=record[5]
+                        )
+                        result.append(account)
+                    return result
+        except Exception as e:
+            return {"message": "Could not find accounts",}
+
+    def delete_account(self, account_id: int) -> bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM account
+                        WHERE id = %s
+                        """,
+                        [account_id]
+                    )
+                    return True
+        except Exception as e:
+            print(e)
+            return False

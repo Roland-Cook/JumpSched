@@ -9,7 +9,7 @@ from fastapi import (
 )
 from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
-
+from typing import Optional, List, Union
 from pydantic import BaseModel
 
 from queries.accounts import (
@@ -29,7 +29,10 @@ class AccountToken(Token):
 class HttpError(BaseModel):
     detail: str
 
-router = APIRouter()
+router = APIRouter(
+    prefix = "/accounts",
+    tags = ['accounts']
+)
 
 
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
@@ -50,3 +53,18 @@ async def create_account(
     form = AccountForm(username=info.email, password=info.password)
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
+
+
+@router.get("/accounts/all", response_model=List[AccountOut])
+def get_all_test(
+    accounts: AccountQueries = Depends(),
+):
+    return accounts.get_all_accounts()
+
+
+@router.delete("/accounts/{account_id}", response_model=bool)
+def delete_account(
+    account_id: int,
+    account: AccountQueries = Depends(),
+) -> bool:
+    return account.delete_account(account_id)

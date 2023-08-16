@@ -2,7 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from queries.testimonial import TestimonialIn, Testimonialrepository, TestimonialOut
 from typing import Optional, List, Union
 
-router = APIRouter()
+router = APIRouter(
+    prefix = "/testimonial",
+    tags = ['testimonial']
+)
 
 @router.post("/testimonial")
 def create_testimonial(

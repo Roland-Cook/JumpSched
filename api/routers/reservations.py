@@ -6,7 +6,11 @@ from typing import Optional, List, Union
 
 # import databases
 
-router = APIRouter()
+router = APIRouter(
+    prefix = "/reservation",
+    tags = ['reservation']
+)
+
 
 # # Assuming you've already defined your database instance somewhere
 # database = databases.Database(DATABASE_URL)

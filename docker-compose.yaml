@@ -1,45 +1,5 @@
 version: "3"
 services:
-  fastapi:
-    build:
-      context: ./api
-      dockerfile: Dockerfile.dev
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./api:/app
-    environment:
-      CORS_HOST: http://localhost:3000
-      DATABASE_URL: postgresql://admin:password@postgres:5432/jumpsched
-      SIGNING_KEY: 87fe4a3fcfb60092dbaeb854a196bc3d9b190aed7930c734749e85245de698420c25f8e6899c421b4494e99459e01058de5daa9d49584cd62ec975da9aea33da
-  postgres:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: jumpsched
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: password
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  ghi:
-    image: node:lts-bullseye
-    command: /bin/bash run.sh
-    working_dir: /app
-    volumes:
-      - ./ghi:/app
-    ports:
-      - "3000:3000"
-    environment:
-      HOST_OS: ${OS}
-      NODE_ENV: development
-      HOST: "0.0.0.0"
-      PUBLIC_URL: http://localhost:3000
-      # REACT_APP_API_HOST: ${REACT_APP_API_HOST}
-
-volumes:
-  postgres_data:
-version: "3"
-services:
   pg-admin:
     image: dpage/pgadmin4
     volumes:

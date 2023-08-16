@@ -17,3 +17,10 @@ def get_all_test(
     repo:Testimonialrepository = Depends(),
 ):
     return repo.get_all_test()
+
+@router.delete("/testimonial/{testimonial_id}", response_model=bool)
+def delete_test(
+    testimonial_id:int,
+    repo:Testimonialrepository=Depends(),
+)-> bool:
+    return repo.delete_testimonial(testimonial_id)

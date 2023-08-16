@@ -68,3 +68,20 @@ class Testimonialrepository:
                     return result
         except Exception as e:
             return{"message": "Could not find testimonials"}
+
+
+    def delete_testimonial(self,testimonial_id:int)->bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM testimonial
+                        WHERE id = %s
+                        """,
+                        [testimonial_id]
+                    )
+                    return True
+        except Exception as e:
+            print(e)
+            return False

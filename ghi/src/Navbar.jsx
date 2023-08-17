@@ -10,6 +10,9 @@ function Navbar({ setCurrentPage }) {
         <li className="nav-item">
           <button onClick={() => setCurrentPage("form")}>Form</button>
         </li>
+        <li className="nav-item">
+          <button onClick={()=> setCurrentPage("prices")}>Prices</button>
+        </li>
       </ul>
     </nav>
   );

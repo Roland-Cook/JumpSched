@@ -88,3 +88,53 @@ class Reservationrepository:
         except Exception as e:
             print(e)
             return {"message": "Could not get all reservatons"}
+
+
+    def delete_reservation(self,reservation_id:int)->bool:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        DELETE FROM reservation
+                        WHERE id = %s
+                        """,
+                        [reservation_id]
+                    )
+                    return True
+        except Exception as e:
+            print(e)
+            return False
+
+
+    def update(self,reservation_id:int, reservation:ReservationIn) -> ReservationOut:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        UPDATE reservation
+                        SET first_name = %s, last_name = %s, phone_number = %s, email = %s, jumper_type = %s, date = %s, time = %s
+                        WHERE id = %s
+                        """,
+                        [
+                            reservation.first_name,
+                            reservation.last_name,
+                            reservation.phone_number,
+                            reservation.email,
+                            reservation.jumper_type,
+                            reservation.date,
+                            reservation.time,
+                            reservation_id
+                        ]
+                    )
+                    return self.reservation_in_to_out(reservation_id,reservation)
+                    
+        except Exception as e:
+            print(e)
+            return {"MESSAGE:Could not update reservation"}
+        
+
+    def reservation_in_to_out(self, id:int, reservation:ReservationIn):
+        old_data = reservation.dict()
+        return ReservationOut(id=id, **old_data)

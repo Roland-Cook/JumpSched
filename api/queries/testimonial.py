@@ -23,7 +23,7 @@ class Testimonialrepository:
                 result= db.execute(
                         """
                           INSERT INTO testimonial
-                          (Full_name, Description, Rating)
+                          (Full_Name, description, rating)
                           VALUES
                             (%s,%s,%s)
                           RETURNING id

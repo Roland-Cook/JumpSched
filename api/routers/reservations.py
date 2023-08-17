@@ -7,7 +7,6 @@ from typing import Optional, List, Union
 # import databases
 
 router = APIRouter(
-    prefix = "/reservation",
     tags = ['reservation']
 )
 
@@ -36,8 +35,21 @@ def get_all(
 ):
         return repo.get_all()
 
+@router.delete("/reservation/{reservation_id}", response_model=bool)
+def delete_test(
+    reservation_id:int,
+    repo:Reservationrepository=Depends(),
+)-> bool:
+    return repo.delete_reservation(reservation_id)
 
 
+@router.put("/reservation/{reservation_id}", response_model=ReservationOut)
+def update_reservation(
+       reservation_id:int,
+       reservation:ReservationIn,
+       repo: Reservationrepository = Depends(),
+) -> ReservationOut:
+       return repo.update(reservation_id,reservation)
 
     # query = """
     #     INSERT INTO reservations (first_name, last_name, phone_number, email, tandem, student, freejump, date, time)

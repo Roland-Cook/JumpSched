@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -66,10 +66,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
 
 /* prices.css */
-prices-table-container{
+/* prices-table-container{
   display:flex;
   align-items: center;
   justify-content: center;
@@ -90,4 +90,4 @@ prices-table tbody,tr{
 .prices-container{
   float: left;
   margin-right: 20px;
-}
+} */

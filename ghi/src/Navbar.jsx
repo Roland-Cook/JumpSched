@@ -47,18 +47,15 @@ function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#team">
-                Prices
-              </a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link" href="#contact">
                 Gallery
               </a>
             </li>
-        <li className="nav-item">
-          <button onClick={()=> setCurrentPage("prices")}>Prices</button>
-        </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/prices">
+                Prices
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

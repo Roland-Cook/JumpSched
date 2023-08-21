@@ -9,26 +9,27 @@ import Testimonials from "./Testimonials";
 import "./styles.css"
 import Prices from "./prices";
 
+
 function App() {
   // const [currentPage, setCurrentPage] = useState("home"); // Default to "home"
 
   return (
     <>
+      <BrowserRouter>
+        <Navbar className="container" />
+        <HeroSection />
 
-    <BrowserRouter>
-      <Navbar className="container" />
-      <HeroSection />
+        <div className="app-container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/form" element={<Form />} />
+            <Route path="/prices" element={<Prices />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+          </Routes>
+        </div>
 
-      <div className="app-container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-        </Routes>
-      </div>
-
-      <Footer />
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

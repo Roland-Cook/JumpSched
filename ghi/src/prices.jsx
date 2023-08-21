@@ -2,16 +2,16 @@ import React from "react";
 
 function Prices(){
     return(
-        <div class="prices-table-container">
+        <div className="prices-table-container">
         <h1>Here are our prices</h1>
-        <div class= "prices-container">
+        <div className="prices-container">
             Gifting someone a skydive is the perfect gift<br/>
             for any occasion! Call now for the best retail<br/> prices in Colorado!
         </div>
         <prices-table>
             <thead>
                 <th>Activites</th>
-                <th colspan="2">Prices</th>
+                <th cols="2">Prices</th>
             </thead>
             <tbody>
             <tr>

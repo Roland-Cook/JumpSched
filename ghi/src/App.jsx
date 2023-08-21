@@ -7,13 +7,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import "./styles.css"
+import Prices from "./prices";
 
 function App() {
   // const [currentPage, setCurrentPage] = useState("home"); // Default to "home"
 
   return (
     <>
-    
+
     <BrowserRouter>
       <Navbar className="container" />
       <HeroSection />

@@ -57,6 +57,9 @@ function NavBar() {
                 Gallery
               </a>
             </li>
+        <li className="nav-item">
+          <button onClick={()=> setCurrentPage("prices")}>Prices</button>
+        </li>
           </ul>
         </div>
       </div>

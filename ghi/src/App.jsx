@@ -12,6 +12,8 @@ function App() {
   // const [currentPage, setCurrentPage] = useState("home"); // Default to "home"
 
   return (
+    <>
+    
     <BrowserRouter>
       <Navbar className="container" />
       <HeroSection />
@@ -26,6 +28,7 @@ function App() {
 
       <Footer />
     </BrowserRouter>
+    </>
   );
 }
 

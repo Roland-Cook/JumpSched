@@ -6,7 +6,7 @@ return(
     <div className="container">
         <div className="masthead-heading text-uppercase">Rocky Mountain Skydive</div>
         <div className="masthead-subheading text-uppercase">Change Your Altitude!</div>
-        <a className="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+        <a className="btn btn-primary btn-xl text-uppercase" href="#services">Book Now</a>
     </div>
 </header>
 )

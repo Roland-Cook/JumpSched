@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import Testimonials from "./Testimonials";
 import "./styles.css"
 import Prices from "./prices";
+import FAQ from "./FAQ"
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/form" element={<Form />} />
             <Route path="/prices" element={<Prices />} />
             <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/FAQ" element={<FAQ />} />
           </Routes>
         </div>
 

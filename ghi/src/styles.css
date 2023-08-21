@@ -11352,3 +11352,18 @@ prices-table tbody,tr{
   float: left;
   margin-right: 20px;
 }
+
+/* FAQ css */
+.answer{
+  list-style-type: disc;
+}
+.indent{
+  margin-left: 20px;
+}
+.faq-box{
+  border: 1px solid;
+  padding: 20px;
+  width: 950px;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px;
+}

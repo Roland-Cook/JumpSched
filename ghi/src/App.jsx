@@ -14,7 +14,7 @@ function App() {
       <main className="main-content">
         {currentPage === "home" && <Home />}
         {currentPage === "form" && <Form />}
-        {currentPage === "prices" &&<Prices />}
+        {currentPage === "prices" && <Prices />}
       </main>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more

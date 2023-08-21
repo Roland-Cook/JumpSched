@@ -67,3 +67,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* prices.css */
+prices-table-container{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  border-collapse: collapse;
+  width:100%;
+
+}
+prices-table td:nth-child(2){
+  text-align: center;
+}
+prices-table th, prices-table td{
+  border: 1px solid;
+}
+prices-table tbody,tr{
+  border-bottom: 1px solid;
+}
+
+.prices-container{
+  float: left;
+  margin-right: 20px;
+}

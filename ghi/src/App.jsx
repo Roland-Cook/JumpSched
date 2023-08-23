@@ -11,7 +11,7 @@ import Prices from "./prices";
 import Login from "./Login";
 import Signup from "./Signup";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
-
+import FAQ from "./FAQ";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter >
+      <BrowserRouter>
         <AuthProvider baseUrl={baseUrl}>
           <Navbar className="container" />
           <HeroSection />
@@ -31,6 +31,7 @@ function App() {
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/faq" element={<FAQ />} />
             </Routes>
           </div>
           <Footer />

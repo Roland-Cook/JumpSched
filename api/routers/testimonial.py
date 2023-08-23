@@ -3,7 +3,6 @@ from queries.testimonial import TestimonialIn, Testimonialrepository, Testimonia
 from typing import Optional, List, Union
 
 router = APIRouter(
-    prefix = "/testimonial",
     tags = ['testimonial']
 )
 

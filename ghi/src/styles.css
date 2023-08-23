@@ -11263,7 +11263,7 @@ header.masthead .masthead-heading {
 
 section#contact {
   height: 550px;
-  background-color: rgb(33, 37, 41);
+  background-color: rgb(33, 37, 41) !important;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -11779,4 +11779,16 @@ footer .widget ul {
   width: 950px;
   border-radius: 25px;
   box-shadow: 0 2px 4px;
+}
+
+.add-testimonials{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto auto;
+  flex-direction: column;
+}
+.add-testimonials form div{
+  margin: 20px;
 }

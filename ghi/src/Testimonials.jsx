@@ -89,7 +89,7 @@ function Testimonials() {
               </div>
             </div>
 
-            <div className="-mx-3 md:flex items-start">
+            <div className="-mx-3 md: items-start">
               <div className="px-3 grid grid-cols-3 gap-4">
                 {testimonials.map((testimonial) => (
                   <>

@@ -1,10 +1,8 @@
-
-import "./styles.css"
-import React from 'react'
-import { NavLink, Route } from 'react-router-dom'
+import "./styles.css";
+import React from "react";
+import { NavLink, Route } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
 
 function NavBar() {
   return (
@@ -56,7 +54,11 @@ function NavBar() {
                 Prices
               </NavLink>
             </li>
-            
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/manifest">
+                Manifest
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/login">
                 Login

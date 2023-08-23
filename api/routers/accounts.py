@@ -30,9 +30,11 @@ class HttpError(BaseModel):
     detail: str
 
 router = APIRouter(
-    prefix = "/accounts",
     tags = ['accounts']
 )
+
+
+
 
 
 @router.post("/api/accounts", response_model=AccountToken | HttpError)
@@ -75,3 +77,17 @@ def delete_account(
     account: AccountQueries = Depends(),
 ) -> bool:
     return account.delete_account(account_id)
+
+
+
+@router.get("/token", response_model=AccountToken | None)
+async def get_token(
+    request: Request,
+    account: AccountIn = Depends(authenticator.try_get_current_account_data)
+) -> AccountToken | None:
+    if account and authenticator.cookie_name in request.cookies:
+        return {
+            "access_token": request.cookies[authenticator.cookie_name],
+            "type": "Bearer",
+            "account": account,
+        }

@@ -15,12 +15,12 @@ import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 
 
 function App() {
-  const domain = /https:\/\/[^/]+/;
-  const basename = import.meta.env.PUBLIC_URL.replace(domain, "");
-  const baseUrl = import.meta.env.REACT_APP_API_HOST;
+  const baseUrl = process.env.REACT_APP_API_HOST;
+  console.log(baseUrl)
+
   return (
     <>
-      <BrowserRouter basename = {basename}>
+      <BrowserRouter >
         <AuthProvider baseUrl={baseUrl}>
           <Navbar className="container" />
           <HeroSection />

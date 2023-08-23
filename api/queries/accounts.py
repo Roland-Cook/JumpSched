@@ -98,8 +98,8 @@ class AccountQueries:
                             id=record[0],
                             first_name=record[1],
                             last_name=record[2],
-                            hashed_password=record[3],
-                            email=record[4],
+                            email=record[3],
+                            hashed_password=record[4],
                             username=record[5]
                         )
                         result.append(account)

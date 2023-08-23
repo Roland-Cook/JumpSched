@@ -10,8 +10,8 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(username,password)
     login(username, password);
-    console.log(login,"aksdjhloaksdjla")
     event.target.reset();
     navigate("/");
   };

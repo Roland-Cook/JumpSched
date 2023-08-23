@@ -56,6 +56,18 @@ function NavBar() {
                 Prices
               </NavLink>
             </li>
+            
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/login">
+                Login
+              </NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/signup">
+                Signup
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

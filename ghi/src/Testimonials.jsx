@@ -16,7 +16,6 @@ function Testimonials() {
 
       if (response.ok) {
         const data = await response.json();
-
         setTestimonials(data);
       }
     }

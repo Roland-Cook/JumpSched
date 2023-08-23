@@ -11399,7 +11399,7 @@ footer p, footer strong, footer b, footer {
     background-position: center;
     padding: 0 0 20px;
     padding-top:30px;
-  
+
 }
 
 .footer-top, .footer-bottom {
@@ -11764,14 +11764,15 @@ footer .widget ul {
 .font-weight-light{
   color:white;
 }
- 
+
 
 /* FAQ css */
 .answer{
   list-style-type: disc;
+  padding-left: 20px;
 }
 .indent{
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .faq-box{
   border: 1px solid;

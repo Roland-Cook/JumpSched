@@ -4,9 +4,13 @@ import React from 'react'
 import { NavLink, Route } from 'react-router-dom'
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 
 
 function NavBar() {
+  const { logout } = useToken();
+  const { token } = useAuthContext();
+
   return (
     <Navbar
       className="navbar navbar-expand-lg navbar-dark fixed-top"
@@ -42,32 +46,47 @@ function NavBar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#about">
+              <NavLink className="nav-link" to="/faq">
                 FAQ
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact">
                 Gallery
               </a>
             </li>
+
             <li className="nav-item">
               <NavLink className="nav-link" to="/prices">
                 Prices
               </NavLink>
             </li>
-            
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
-                Login
-              </NavLink>
-            </li>
-
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/signup">
-                Signup
-              </NavLink>
-            </li>
+            {token ? (
+              <li>
+                <button
+                  className="nav-link"
+                  style={{ color: "white" }}
+                  onClick={logout}
+                >
+                  Logout
+                </button>
+              </li>
+            ) : (
+              <div className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/login">
+                    Login
+                  </NavLink>
+                </li>
+                <div>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/signup">
+                      Signup
+                    </NavLink>
+                  </li>
+                </div>
+              </div>
+            )}
           </ul>
         </div>
       </div>

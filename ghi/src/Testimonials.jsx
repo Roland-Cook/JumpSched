@@ -23,7 +23,7 @@ function Testimonials() {
 
     useEffect(() => {
       loadTestimonials()
-    }, [testimonials]);
+    }, [fullName]);
 
 
   const handleFullNameChange = (event) => {

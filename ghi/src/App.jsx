@@ -16,7 +16,6 @@ import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 
 function App() {
   const baseUrl = process.env.REACT_APP_API_HOST;
-  console.log(baseUrl)
 
   return (
     <>

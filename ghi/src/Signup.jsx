@@ -20,10 +20,7 @@ const Signup = () => {
       last_name: last_name,
       first_name: first_name
     }
-    register(
-      userData,
-      `${process.env.REACT_APP_USER_SERVICE_API_HOST}/accounts/api/accounts`
-    );
+    register(userData, `http://localhost:8000/api/accounts`);
     event.target.reset();
     navigate("/login");
   };

@@ -68,7 +68,12 @@ function NavBar() {
                     Manifest
                   </NavLink>
                 </li>
-                <li>
+                <li className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/profile">
+                    profile
+                  </NavLink>
+                </li>
                   <button
                     className="nav-link"
                     style={{ color: "white" }}

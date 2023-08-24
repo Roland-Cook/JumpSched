@@ -61,7 +61,7 @@
   --bs-body-bg: #fff;
   --bs-border-width: 1px;
   --bs-border-style: solid;
-  --bs-border-color: #dee2e6;
+  --bs-border-color: #9faef1;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
   --bs-border-radius: 0.375rem;
   --bs-border-radius-sm: 0.25rem;
@@ -2842,10 +2842,10 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #ffc800;
+  --bs-btn-bg: #3886e8;
   --bs-btn-border-color: #ffc800;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #d9aa00;
+  --bs-btn-hover-bg: #3886e8;
   --bs-btn-hover-border-color: #cca000;
   --bs-btn-focus-shadow-rgb: 255, 208, 38;
   --bs-btn-active-color: #fff;
@@ -2853,7 +2853,7 @@ textarea.form-control-lg {
   --bs-btn-active-border-color: #bf9600;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #ffc800;
+  --bs-btn-disabled-bg: #3886e8;
   --bs-btn-disabled-border-color: #ffc800;
 }
 
@@ -8172,7 +8172,7 @@ textarea.form-control-lg {
     background-size: cover; /* or "contain" depending on what you want */
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: rgb(33, 37, 41) !important;
+  background-color: white !important;
 }
 
 .bg-body {
@@ -10948,16 +10948,17 @@ p {
   }
 }
 header.masthead {
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
-  text-align: center;
-  color: #fff;
-  background-image: url("./images/tempsnip.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  height: 600px !important;
+padding-top: 10.5rem;
+padding-bottom: 6rem;
+text-align: center;
+color: #fff;
+background-image: url("https://skydiveoregon.com/img/asset/YXNzZXRzL2hlcm8taW1hZ2VzL3RhbmRlbS1qdW1wLWhlcm8taW1hZ2UuanBlZw==?w=2400&h=1000&fit=crop-56-40-1&s=3c5930824484a04e92439e43d25b5fa0");
+background-repeat: no-repeat;
+background-attachment: scroll;
+background-position: center;
+background-size: 100%;
+height: 600px !important;
+width: 100% !important;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -11263,13 +11264,13 @@ header.masthead .masthead-heading {
 
 section#contact {
   height: 550px;
-  background-color: rgb(33, 37, 41);
+  background-color: rgb(33, 37, 41) !important;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 section#contact .section-heading {
-  color: #fff;
+  color: white
 }
 section#contact form#contactForm .form-group {
   margin-bottom: 1.5rem;
@@ -11354,7 +11355,7 @@ prices-table tbody,tr{
 
 #services{
   padding: 20px;
-  background-color: rgb(255, 200, 0);
+  background-color: #3b8bee;
 }
 
 
@@ -11770,6 +11771,7 @@ footer .widget ul {
 .answer{
   list-style-type: disc;
   padding-left: 20px;
+  padding-left: 20px;
 }
 .indent{
   margin-left: 30px;
@@ -11780,6 +11782,126 @@ footer .widget ul {
   width: 950px;
   border-radius: 25px;
   box-shadow: 0 2px 4px;
+}
+
+.add-testimonials{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto auto;
+  flex-direction: column;
+}
+.add-testimonials form div{
+  margin: 20px;
+}
+
+.about-space h2{
+margin: 20px;
+}
+
+.about-space p{
+  font-size: 17px;
+}
+.card p {
+  margin-bottom: 30px;
+}
+
+.bg-indigo-500{
+  background-color: #3989ec !important;
+}
+
+.testimonial-form{
+  padding: 10px;
+  border: 2px solid blue;
+  background-color:rgba(80, 137, 250,0.3);
+  width: 350px;
+}
+
+.w-full-date{
+  width: 205% !important;
+}
+
+
+
+
+
+
+
+.modal-confirm {
+	color: #636363;
+	width: 325px;
+	font-size: 14px;
+}
+.modal-confirm .modal-content {
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+}
+.modal-confirm .modal-header {
+	border-bottom: none;
+	position: relative;
+}
+.modal-confirm h4 {
+	text-align: center;
+	font-size: 26px;
+	margin: 30px 0 -15px;
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+	min-height: 40px;
+	border-radius: 3px;
+}
+.modal-confirm .close {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+}
+.modal-confirm .modal-footer {
+	border: none;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 13px;
+}
+.modal-confirm .icon-box {
+	color: #fff;
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	top: -70px;
+	width: 95px;
+	height: 95px;
+	border-radius: 50%;
+	z-index: 9;
+	background: #82ce34;
+	padding: 15px;
+	text-align: center;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-confirm .icon-box i {
+	font-size: 58px;
+	position: relative;
+	top: 3px;
+}
+.modal-confirm.modal-dialog {
+	margin-top: 80px;
+}
+.modal-confirm .btn {
+	color: #fff;
+	border-radius: 4px;
+	background: #82ce34;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	border: none;
+}
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+	background: #6fb32b;
+	outline: none;
+}
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
 }
 
 /* gallery css */

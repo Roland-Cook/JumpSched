@@ -7,6 +7,7 @@ function Form() {
   const [selectedTime, setSelectedTime] = useState("09:00"); // Initialize with a default time
   const [selectedJumperType, setSelectedJumperType] = useState(""); // Initialize with an empty value
 
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -81,6 +82,7 @@ function Form() {
         setSelectedTime("09:00");
         setSelectedJumperType("");
       } else {
+        
         console.error("Error:", response.statusText);
       }
     } catch (error) {
@@ -88,50 +90,190 @@ function Form() {
     }
   };
 
+
   return (
-    <div className="form-container">
-      <form action="" onSubmit={submitForm} className="signup-form">
-        <label htmlFor="first_name">First Name</label>
-        <input type="text" name="first_name" required />
-        <label htmlFor="last_name">Last Name</label>
-        <input type="text" name="last_name" required />
-        <label htmlFor="phone_number">Phone Number</label>
-        <input type="text" name="phone_number" required />
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" required />
-        <label htmlFor="jumper_type">Jumper Type</label>
-        <select
-          name="jumper_type"
-          value={selectedJumperType}
-          onChange={handleJumperTypeChange}
-          required
-        >
-          <option value="">Select Jumper Type</option>
-          <option value="tandem">Tandem</option>
-          <option value="student">Student</option>
-          <option value="fun_jumper">Fun Jumper</option>
-        </select>
-        <label htmlFor="date">Date</label>
-        <DatePicker
-          selected={selectedDate}
-          onChange={handleDateChange}
-          dateFormat="yyyy/MM/dd"
-          minDate={minDate}
-          maxDate={maxDate}
-          filterDate={isAvailableDate}
-          required
-        />
-        <label htmlFor="time">Time</label>
-        <select value={selectedTime} onChange={handleTimeChange} required>
-          {getAvailableTimes().map((time) => (
-            <option key={time} value={time} disabled={!isAvailableTime(time)}>
-              {time}
-            </option>
-          ))}
-        </select>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <>
+
+      <div id="myModal" className="hidden">
+        <div className="modal-dialog modal-confirm">
+          <div className="modal-content">
+            <div className="modal-header">
+              <div className="icon-box">
+                <i className="material-icons">&#xE876;</i>
+              </div>
+              <h4 className="modal-title w-100">Awesome!</h4>
+            </div>
+            <div className="modal-body">
+              <p className="text-center">
+                Your booking has been confirmed. Check your email for detials.
+              </p>
+            </div>
+            <div className="modal-footer">
+              <button
+                className="btn btn-success btn-block"
+                data-dismiss="modal"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-center p-12">
+        <div className="mx-auto w-full max-w-5xl">
+          <form action="" onSubmit={submitForm}>
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label
+                    htmlFor="first_name"
+                    className="mb-3 block text-base font-medium text-[#07074D]"
+                  >
+                    First Name
+                  </label>
+                  <input
+                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    type="text"
+                    name="first_name"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label
+                    htmlFor="last_name"
+                    className="mb-3 block text-base font-medium text-[#07074D]"
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    name="last_name"
+                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label
+                    htmlFor="phone_number"
+                    className="mb-3 block text-base font-medium text-[#07074D]"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    type="text"
+                    name="phone_number"
+                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5"></div>
+
+                <label
+                  htmlFor="email"
+                  className="mb-3 block text-base font-medium text-[#07074D]"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="-mx-3 flex flex-wrap">
+              <label
+                htmlFor="jumper_type"
+                className="mb-3 block text-base font-medium text-[#07074D]"
+              >
+                Jumper Type
+              </label>
+              <select
+                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                name="jumper_type"
+                value={selectedJumperType}
+                onChange={handleJumperTypeChange}
+                required
+              >
+                <option value="">Select Jumper Type</option>
+                <option value="tandem">Tandem</option>
+                <option value="student">Student</option>
+                <option value="fun_jumper">Fun Jumper</option>
+              </select>
+            </div>
+
+            <div className="-mx-3 flex flex-wrap">
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label
+                    htmlFor="date"
+                    className="mb-3 block text-base font-medium text-[#07074D]"
+                  >
+                    Date
+                  </label>
+                  <DatePicker
+                    className="w-full w-full-date rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    selected={selectedDate}
+                    onChange={handleDateChange}
+                    dateFormat="yyyy/MM/dd"
+                    minDate={minDate}
+                    maxDate={maxDate}
+                    type="date"
+                    filterDate={isAvailableDate}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="w-full px-3 sm:w-1/2">
+                <div className="mb-5">
+                  <label
+                    htmlFor="time"
+                    className="mb-3 block text-base font-medium text-[#07074D]"
+                  >
+                    Time
+                  </label>
+                  <select
+                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    value={selectedTime}
+                    onChange={handleTimeChange}
+                    required
+                  >
+                    {getAvailableTimes().map((time) => (
+                      <option
+                        key={time}
+                        value={time}
+                        disabled={!isAvailableTime(time)}
+                      >
+                        {time}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <button href="#myModal" data-toggle="modal" className="submitButton" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
   );
 }
 

@@ -10,8 +10,10 @@ import "./styles.css"
 import Prices from "./prices";
 import Login from "./Login";
 import Signup from "./Signup";
-import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import FAQ from "./FAQ";
+import Gallery from "./Gallery";
+import Manifest from "./Manifest";
+import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 
 
 function App() {
@@ -31,7 +33,9 @@ function App() {
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/faq" element={<FAQ />} />
+              <Route path="/FAQ" element={<FAQ />} />
+              <Route path="/Gallery" element={<Gallery />} />
+              <Route path="/manifest" element={<Manifest />} />
             </Routes>
           </div>
           <Footer />

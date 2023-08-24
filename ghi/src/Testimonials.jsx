@@ -16,14 +16,13 @@ function Testimonials() {
 
       if (response.ok) {
         const data = await response.json();
-
         setTestimonials(data);
       }
     }
 
     useEffect(() => {
       loadTestimonials()
-    }, [testimonials]);
+    }, [fullName]);
 
 
   const handleFullNameChange = (event) => {
@@ -73,11 +72,17 @@ function Testimonials() {
         <div className="w-full bg-white px-5 py-16 md:py-24 text-gray-800">
           <div className="w-full max-w-6xl mx-auto">
             <div className="text-center max-w-xl mx-auto">
-              <h1 className="text-6xl md:text-7xl font-bold mb-5 text-gray-600">
+              <h1
+                className="text-6xl md:text-7xl font-bold mb-5 text-gray-600"
+                style={{ color: "#3989ec" }}
+              >
                 What people <br />
                 are saying.
               </h1>
-              <h3 className="text-xl mb-5 font-light">
+              <h3
+                className="text-xl mb-5 font-light"
+                style={{ color: "#3989ec" }}
+              >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </h3>
               <div className="text-center mb-10">
@@ -126,39 +131,42 @@ function Testimonials() {
           </div>
           <div>
             <div className="add-testimonials mt-8">
-              <h2>Add a Testimonial</h2>
-              <form>
-                <div className="">
-                  <label>Full Name:</label>
-                  <input
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    type="text"
-                    value={fullName}
-                    onChange={handleFullNameChange}
-                  />
-                </div>
-                <div>
-                  <label>Description:</label>
-                  <textarea
-                    className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={description}
-                    onChange={handleDescriptionChange}
-                  />
-                </div>
-                <div>
-                  <label>Rating:</label>
-                  <input
-                    type="number"
-                    max="5"
-                    value={rating}
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    onChange={handleRatingChange}
-                  />
-                </div>
-                <button type="button" onClick={handleAddTestimonial}>
-                  Add Testimonial
-                </button>
-              </form>
+              <div className="testimonial-form">
+                <h2>Add a Testimonial</h2>
+                <form>
+                  <div className="">
+                    <label>Full Name:</label>
+                    <input
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      type="text"
+                      value={fullName}
+                      onChange={handleFullNameChange}
+                    />
+                  </div>
+                  <div>
+                    <label>Description:</label>
+                    <textarea
+                      className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      value={description}
+                      onChange={handleDescriptionChange}
+                    />
+                  </div>
+                  <div>
+                    <label>Rating:</label>
+                    <input
+                      type="number"
+                      min="1"
+                      max="5"
+                      value={rating}
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      onChange={handleRatingChange}
+                    />
+                  </div>
+                  <button type="button" onClick={handleAddTestimonial}>
+                    Add Testimonial
+                  </button>
+                </form>
+              </div>
             </div>
             <div className="testimonial-list"></div>
           </div>

@@ -15,8 +15,8 @@ function Home() {
       <section className="page-section" id="services">
         <div className="container">
           <div className="text-center">
-            <h2 className="section-heading text-uppercase">Services</h2>
-            <h3 className="section-subheading text-muted">
+            <h2 className="section-heading text-uppercase" style={{color:"white"}}>Services</h2>
+            <h3 className="section-subheading" style={{color:"white"}}>
               Lorem ipsum dolor sit amet consectetur.
             </h3>
           </div>

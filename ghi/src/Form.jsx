@@ -145,7 +145,7 @@ function Form() {
         <div className="w-full px-3 sm:w-1/2">
           <div className="mb-5">
             <label
-              for="fName"
+              htmlFor="fName"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               First Name
@@ -162,7 +162,7 @@ function Form() {
         <div className="w-full px-3 sm:w-1/2">
           <div className="mb-5">
             <label
-              for="lName"
+              htmlFor="lName"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Last Name
@@ -179,7 +179,7 @@ function Form() {
       </div>
       <div className="mb-5">
         <label
-          for="guest"
+          htmlFor="guest"
           className="mb-3 block text-base font-medium text-[#07074D]"
         >
           How many guest are you bringing?
@@ -198,7 +198,7 @@ function Form() {
         <div className="w-full px-3 sm:w-1/2">
           <div className="mb-5">
             <label
-              for="date"
+              htmlFor="date"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Date
@@ -214,7 +214,7 @@ function Form() {
         <div className="w-full px-3 sm:w-1/2">
           <div className="mb-5">
             <label
-              for="time"
+              htmlFor="time"
               className="mb-3 block text-base font-medium text-[#07074D]"
             >
               Time
@@ -242,7 +242,7 @@ function Form() {
               className="h-5 w-5"
             />
             <label
-              for="radioButton1"
+              htmlFor="radioButton1"
               className="pl-3 text-base font-medium text-[#07074D]"
             >
               Yes
@@ -256,7 +256,7 @@ function Form() {
               className="h-5 w-5"
             />
             <label
-              for="radioButton2"
+              htmlFor="radioButton2"
               className="pl-3 text-base font-medium text-[#07074D]"
             >
               No

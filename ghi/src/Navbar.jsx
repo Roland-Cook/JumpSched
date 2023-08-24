@@ -55,11 +55,6 @@ function NavBar() {
                 Gallery
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/manifest">
-                Manifest
-              </NavLink>
-            </li>
 
             <li className="nav-item">
               <NavLink className="nav-link" to="/prices">
@@ -67,15 +62,22 @@ function NavBar() {
               </NavLink>
             </li>
             {token ? (
-              <li>
-                <button
-                  className="nav-link"
-                  style={{ color: "white" }}
-                  onClick={logout}
-                >
-                  Logout
-                </button>
-              </li>
+              <>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/manifest">
+                    Manifest
+                  </NavLink>
+                </li>
+                <li>
+                  <button
+                    className="nav-link"
+                    style={{ color: "white" }}
+                    onClick={logout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
             ) : (
               <div className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                 <li className="nav-item">

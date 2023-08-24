@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+
 
 function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
   const [fullName, setFullName] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState(5); // Default rating
+  const { token } = useAuthContext();
 
 
 
@@ -130,6 +133,9 @@ function Testimonials() {
             </div>
           </div>
           <div>
+            
+            {token ? (
+              <>
             <div className="add-testimonials mt-8">
               <div className="testimonial-form">
                 <h2>Add a Testimonial</h2>
@@ -168,7 +174,10 @@ function Testimonials() {
                 </form>
               </div>
             </div>
-            <div className="testimonial-list"></div>
+            </>
+            ): (
+              <h6></h6>
+            )}     
           </div>
         </div>
       </div>

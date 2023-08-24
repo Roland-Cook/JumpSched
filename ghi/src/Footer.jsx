@@ -88,7 +88,6 @@ function Footer() {
                 <div className="fw-bolder">Form submission successful!</div>
                 <br />
                 <a href="https://startbootstrap.com/solution/contact-forms">
-                  https://startbootstrap.com/solution/contact-forms
                 </a>
               </div>
             </div>
@@ -99,7 +98,7 @@ function Footer() {
             </div>
             <div className="text-center">
               <button
-                className="btn btn-primary btn-xl text-uppercase disabled"
+                className="btn btn-primary btn-xl text-uppercase  mt-8"
                 id="submitButton"
                 type="submit"
               >

@@ -1,34 +1,26 @@
-import React from "react";
-import {generateUploadURL} from "/api/s3.js";
+import geeser from "./images/geeser.jpg"
+import heli_jump from "./images/heli_jump.jpg"
+import pull from "./images/pull.jpg"
+import sit from "./images/sit.jpg"
+import tandem_fun from "./images/tandem_fun.jpg"
+import tempsnip from "./images/tempsnip.jpg"
+import yell from "./images/yell.jpg"
+import React, { useState } from "react";
 
 
-// const imageForm = document.querySelector("#imageForm")
-// const imageInput = document.querySelector("#imageInput")
+function Gallery() {
 
-function Gallery(){
-
-    const handleSubmit = async (event) =>{
-        event.preventDefault()
-        const file = imageInput.files[0]
-        // get secur url from our server
-        const {url} =await fetch("/s3Url").then(res=res.json())
-        console.log(url)
-        // post image directly to s3 bucket
-        // post request to my server to store any extra data
-
-    }
-    return(
-        <div>
-            <form id="imageForm" onSubmit={handleSubmit}>
-                <input type="file" id="imageInput"/>
-                <button type="submit">Upload Image</button>
-            </form>
-            "hello world"
+    return (
+        <div className="gallery">
+    <img src={geeser} alt=""/>
+    <img src={heli_jump} alt=""/>
+    <img src={pull} alt=""/>
+    <img src={sit} alt=""/>
+    <img src={tempsnip} alt=""/>
+    <img src={yell} alt=""/>
+    <img src={tandem_fun} alt=""/>
         </div>
-        );
-
-
-
-
+    )
 }
-export default Gallery
+
+export default Gallery;

@@ -12,6 +12,8 @@ import Login from "./Login";
 import Signup from "./Signup";
 import FAQ from "./FAQ";
 import Gallery from "./Gallery";
+import FAQ from "./FAQ";
+import Gallery from "./Gallery";
 import Manifest from "./Manifest";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 

@@ -46,6 +46,12 @@ function Manifest() {
 
   const sortedReservations = [...reservations].sort(customSort);
 
+  const peronalReservations = sortedReservations.map(reservation => reservation.email)
+  
+  console.log(peronalReservations)
+
+
+
   return (
     <div>
       <h1>Reservations Manifest</h1>

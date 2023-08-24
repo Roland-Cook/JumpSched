@@ -11771,6 +11771,7 @@ footer .widget ul {
 .answer{
   list-style-type: disc;
   padding-left: 20px;
+  padding-left: 20px;
 }
 .indent{
   margin-left: 30px;
@@ -11782,7 +11783,6 @@ footer .widget ul {
   border-radius: 25px;
   box-shadow: 0 2px 4px;
 }
-
 
 .add-testimonials{
   display: flex;

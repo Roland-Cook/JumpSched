@@ -51,9 +51,14 @@ function NavBar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact">
+              <NavLink className="nav-link" to="/Gallery">
                 Gallery
-              </a>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/manifest">
+                Manifest
+              </NavLink>
             </li>
 
             <li className="nav-item">

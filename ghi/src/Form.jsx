@@ -138,7 +138,6 @@ function Form() {
 
 
 <div className="flex items-center justify-center p-12">
-
   <div className="mx-auto w-full max-w-[550px]">
     <form action="https://formbold.com/s/FORM_ID" method="POST">
       <div className="-mx-3 flex flex-wrap">

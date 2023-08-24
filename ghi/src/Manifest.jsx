@@ -3,14 +3,16 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function Manifest() {
   const [reservations, setReservations] = useState([]);
-  const [sortBy, setSortBy] = useState("date");
+  const [selectedDate, setSelectedDate] = useState("");
 
   useEffect(() => {
-    fetchReservations(sortBy);
-  }, [sortBy]);
+    fetchReservations();
+  }, [selectedDate]);
 
-  const fetchReservations = (sortByValue) => {
-    fetch(`http://localhost:8000/reservation?sort_by=${sortByValue}`)
+  const fetchReservations = () => {
+    let url = `http://localhost:8000/reservation`;
+
+    fetch(url)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -18,7 +20,6 @@ function Manifest() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setReservations(data);
       })
       .catch((error) => {
@@ -26,34 +27,27 @@ function Manifest() {
       });
   };
 
-  const customSort = (a, b) => {
-    if (sortBy === "jumper_type") {
-      const jumperTypeComparison = a.jumper_type.localeCompare(b.jumper_type);
-      if (jumperTypeComparison !== 0) {
-        return jumperTypeComparison;
-      }
-    } else if (sortBy === "date") {
-      const dateComparison = a.date.localeCompare(b.date);
-      if (dateComparison !== 0) {
-        return dateComparison;
-      }
+  const filteredReservations = reservations.filter(
+    (reservation) => !selectedDate || reservation.date === selectedDate
+  );
+
+  const sortedReservations = filteredReservations.sort((a, b) => {
+    const dateComparison = a.date.localeCompare(b.date);
+    if (dateComparison !== 0) {
+      return dateComparison;
     }
-
-    const timeA = new Date(`1970-01-01T${a.time}`).getTime();
-    const timeB = new Date(`1970-01-01T${b.time}`).getTime();
-    return timeA - timeB;
-  };
-
-  const sortedReservations = [...reservations].sort(customSort);
+    return a.time.localeCompare(b.time);
+  });
 
   return (
     <div>
       <h1>Reservations Manifest</h1>
-      <label>Sort by:</label>
-      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-        <option value="date">Date</option>
-        <option value="jumper_type">Jumper Type</option>
-      </select>
+      <label>Select Date:</label>
+      <input
+        type="date"
+        value={selectedDate}
+        onChange={(e) => setSelectedDate(e.target.value)}
+      />
       <table>
         <thead>
           <tr>

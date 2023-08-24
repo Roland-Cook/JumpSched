@@ -8,7 +8,6 @@ function Form() {
   const [selectedJumperType, setSelectedJumperType] = useState(""); // Initialize with an empty value
 
 
-
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };

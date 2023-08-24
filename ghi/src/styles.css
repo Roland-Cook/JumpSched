@@ -11924,7 +11924,12 @@ margin: 20px;
   object-fit: cover;
   animation: r var(--d) linear infinite;
 }
-
+.gallery > img:nth-child(0) {
+  animation-delay: calc((1 - 0) / var(--n) * var(--d));
+}
+.gallery > img:nth-child(1) {
+  animation-delay: calc((1 - 1) / var(--n) * var(--d));
+}
 .gallery > img:nth-child(2) {
   animation-delay: calc((1 - 2) / var(--n) * var(--d));
 }

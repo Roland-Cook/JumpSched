@@ -1,56 +1,45 @@
 import React, { useState, useEffect } from "react";
 import JSONPretty from "react-json-pretty";
+import { Link } from "react-router-dom";
+
 
 const Profile = () => {
   const [userData, setUserData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
    const [reservations, setReservations] = useState([]);
-   const [sortBy, setSortBy] = useState("date");
    const [account,setAccount] = useState("")
+   const [jumpCount,setJumpCount] = useState(0)
+   const [lastJump, setLastJump] = useState("")
 
 // reservation logic
 
-   const fetchReservations = (sortByValue) => {
-     fetch(`http://localhost:8000/reservation?sort_by=${sortByValue}`)
-       .then((response) => {
-         if (!response.ok) {
-           throw new Error("Network response was not ok");
-         }
-         return response.json();
-       })
-       .then((data) => {
-         console.log(data);
-         setReservations(data);
-       })
-       .catch((error) => {
-         console.error("Error fetching data:", error);
-       });
-   };
+   async function fetchReservations () {
 
+      const response = await fetch("http://localhost:8000/reservation");
+
+      if (response.ok) {
+        const data = await response.json();
+         setReservations(data)
+            let count = 0;
+            for (var i = 0; i < data.length; i++) {
+              if (data[i].email === account.email) {
+                count++;
+              }
+              setJumpCount(count);
+            }
+
+           
+      }
+    }
       useEffect(() => {
-        fetchReservations(sortBy);
-      }, [sortBy]);
+        fetchReservations();
+      }, []);
+
+  
+      const personalReservations = reservations.map(res => res.email);
+      console.log("PERSONAL",personalReservations)
 
 
-   const customSort = (a, b) => {
-     if (sortBy === "jumper_type") {
-       const jumperTypeComparison = a.jumper_type.localeCompare(b.jumper_type);
-       if (jumperTypeComparison !== 0) {
-         return jumperTypeComparison;
-       }
-     } else if (sortBy === "date") {
-       const dateComparison = a.date.localeCompare(b.date);
-       if (dateComparison !== 0) {
-         return dateComparison;
-       }
-     }
-
-     const timeA = new Date(`1970-01-01T${a.time}`).getTime();
-     const timeB = new Date(`1970-01-01T${b.time}`).getTime();
-     return timeA - timeB;
-   };
-
-   const sortedReservations = [...reservations].sort(customSort);
 
    // reservation fetch
 
@@ -62,7 +51,6 @@ const Profile = () => {
         credentials: "include",
       });
       const data = await response.json();
-      console.log(data.account);
       setAccount(data.account)
       setTimeout(() => {
         setUserData(data);
@@ -75,6 +63,11 @@ const Profile = () => {
   useEffect(() => {
     handleFetchWithAPI();
   }, []);
+
+
+
+
+
   return (
     <div>
       <section className="vh-100" style={{ backgroundColor: "#f4f5f7" }}>
@@ -119,7 +112,8 @@ const Profile = () => {
                       )}
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1"></div>
-                      <h6>Jump Counter: #</h6>
+                      
+                      <h6>Jump Counter: #{jumpCount}</h6>
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1">
                         <div className="col-6 mb-3">
@@ -133,17 +127,12 @@ const Profile = () => {
                 <button type="button" className="btn btn-outline-info">
                   Completed Jumps
                 </button>
-                <button type="button" className="btn btn-outline-info">
-                  Scheduled Jumps
-                </button>
-                {sortedReservations.filter(res => res.email=== account.email).map(reservation => {
-                    return (
-                      <>
-                        <h1>{reservation.first_name}</h1>
-                        <h1>{reservation.time}</h1>
-                      </>
-                    );
-                    })}
+                <Link to="/scheduledJumps">
+                  <button type="button" className="btn btn-outline-info">
+                    Scheduled Jumps
+                  </button>
+                </Link>
+                
               </div>
             </div>
           </div>

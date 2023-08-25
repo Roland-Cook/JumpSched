@@ -16,6 +16,8 @@ import Login from "./account/Login";
 import Signup from "./account/Signup";
 import Profile from './account/profile'
 import WeatherForecast from "./Weather";
+import ScheduledJumps from "./scheduledJumps";
+
 
 function App() {
   const baseUrl = process.env.REACT_APP_API_HOST;
@@ -39,6 +41,7 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/weather" element={<WeatherForecast />} />
+              <Route path="/scheduledJumps" element={<ScheduledJumps />} />
             </Routes>
           </div>
           <Footer />

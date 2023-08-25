@@ -1,6 +1,6 @@
 
 import "./styles.css"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, Route } from 'react-router-dom'
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -10,6 +10,7 @@ import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 function NavBar() {
   const { logout } = useToken();
   const { token } = useAuthContext();
+
 
   return (
     <Navbar

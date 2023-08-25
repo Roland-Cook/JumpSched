@@ -52,12 +52,6 @@ const Profile = () => {
 
    const sortedReservations = [...reservations].sort(customSort);
 
-   const peronalReservations = sortedReservations.map(
-     (reservation) => reservation.email
-   );
-
-   console.log(peronalReservations);
-
    // reservation fetch
 
 
@@ -145,7 +139,7 @@ const Profile = () => {
                 {sortedReservations.filter(res => res.email=== account.email).map(reservation => {
                     return (
                       <>
-                        <h1>{reservation.email}</h1>
+                        <h1>{reservation.first_name}</h1>
                         <h1>{reservation.time}</h1>
                       </>
                     );

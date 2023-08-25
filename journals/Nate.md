@@ -1,1 +1,1 @@
-A journal 
+A journal

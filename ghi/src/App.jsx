@@ -14,7 +14,7 @@ import Manifest from "./Manifest";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import Login from "./account/Login";
 import Signup from "./account/Signup";
-import Profile from './account/profile'
+import Profile from './account/profile';
 import ScheduledJumps from "./scheduledJumps";
 
 

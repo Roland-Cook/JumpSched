@@ -11381,7 +11381,6 @@ prices-table tbody,tr{
 
 
 
-
 .page-wrapper
 {
       position: absolute;
@@ -11784,6 +11783,10 @@ footer .widget ul {
   border-radius: 25px;
   box-shadow: 0 2px 4px;
   
+}
+
+.faq-info{
+  display: flex;
 }
 
 .add-testimonials{

@@ -94,7 +94,7 @@ function Form() {
   return (
     <>
 
-      <div id="myModal" className="hidden">
+      <div id="myModal" className="modal fade">
         <div className="modal-dialog modal-confirm">
           <div className="modal-content">
             <div className="modal-header">

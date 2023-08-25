@@ -9,6 +9,22 @@ function Manifest() {
     fetchReservations(sortBy);
   }, [sortBy]);
 
+
+   const deleteRes = (reservationId) => {
+     fetch(`http://localhost:8000/reservation/${reservationId}`, {
+       method: "DELETE",
+     })
+       .then((response) => {
+         if (!response.ok) {
+           throw new Error("Network response was not ok");
+         }
+         const updatedReservations = reservations.filter(
+           (reservation) => reservation.id !== reservationId
+         );
+         setReservations(updatedReservations);
+       })
+   };
+
   const fetchReservations = (sortByValue) => {
     fetch(`http://localhost:8000/reservation?sort_by=${sortByValue}`)
       .then((response) => {
@@ -47,7 +63,7 @@ function Manifest() {
   const sortedReservations = [...reservations].sort(customSort);
 
   const peronalReservations = sortedReservations.map(reservation => reservation.email)
-  
+
   console.log(peronalReservations)
 
 
@@ -82,6 +98,14 @@ function Manifest() {
               <td>{reservation.jumper_type}</td>
               <td>{reservation.date}</td>
               <td>{reservation.time}</td>
+              <button
+                type="button"
+                className="btn btn-outline-warning"
+                onClick={() => deleteRes(reservation.id)}
+              >
+                Delete
+              </button>
+
             </tr>
           ))}
         </tbody>

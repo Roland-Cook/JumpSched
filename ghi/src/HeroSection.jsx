@@ -18,7 +18,7 @@ function HeroSection (){
 
     const fetchData = async () =>{
     try {
-        const response = await fetch (`https://api.openweathermap.org/data/2.5/forecast?lat=40.42&lon=-104.70&appid=${apiKey}`)
+        const response = await fetch (`https://api.openweathermap.org/data/2.5/forecast?lat=40.42&lon=-104.70&units=metric&appid=${apiKey}`)
         const data = await response.json();
 
         // const forecastList=data.list
@@ -52,12 +52,15 @@ useEffect(() => {
             Book Now
           </Link>
         </div>
-        <h2>7-Day Weather Forecast</h2>
+        <h2>5-Day Weather Forecast</h2>
         <div className="h-56 grid grid-cols-5 mb-4 content-between">
           {forecastData.map((forecast, index) => (
             <div key={index}>
-              <p>Date:{forecast.dt_txt}</p>
-              <p>Temperature:{forecast.main.temp}F'</p>
+              <p>Date: {forecast.dt_txt}</p>
+              <p>Temperature: {(forecast.main.temp * 9/5 +32)}F</p>
+              {forecast.weather.map((weather,index) => (
+              <img key={index} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt="weather-icon" className="w-20 h-20 text-gray-800 ml-48 dark:text-white`"/>
+          ))}
             </div>
           ))}
         </div>

@@ -10861,7 +10861,7 @@ p {
 
 @media (min-width: 768px) {
   section {
-    padding: 9rem 0;
+    padding: 0 0;
   }
 }
 .btn-xl {
@@ -12124,4 +12124,9 @@ margin: 20px;
     width: 100px;
     height: 100px;
     border-radius: 8px;
+}
+
+
+.location-image img{
+height: 25vh;
 }

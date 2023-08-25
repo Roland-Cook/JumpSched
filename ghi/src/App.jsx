@@ -15,6 +15,8 @@ import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import Login from "./account/Login";
 import Signup from "./account/Signup";
 import Profile from './account/profile'
+import WeatherForecast from "./Weather";
+import ScheduledJumps from "./scheduledJumps";
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
               <Route path="/manifest" element={<Manifest />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/weather" element={<WeatherForecast />} />
+              <Route path="/scheduledJumps" element={<ScheduledJumps />} />
             </Routes>
           </div>
           <Footer />

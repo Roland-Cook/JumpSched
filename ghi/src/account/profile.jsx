@@ -27,17 +27,22 @@ const Profile = () => {
               }
               setJumpCount(count);
             }
+                  let personals = [];
+                  for (var j = 0; j < reservations.length; j++) {
+                    if (reservations[j].email === account.email) {
+                      personals.push(reservations[j]);
+                    }
+                  const last = personals[0];
 
-           
+                   setLastJump(last);           
+
+                  }
       }
     }
       useEffect(() => {
         fetchReservations();
-      }, []);
+      }, [reservations]);
 
-  
-      const personalReservations = reservations.map(res => res.email);
-      console.log("PERSONAL",personalReservations)
 
 
 
@@ -113,11 +118,11 @@ const Profile = () => {
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1"></div>
                       
-                      <h6>Jump Counter: #{jumpCount}</h6>
+                      <h6>Jump Counter: {jumpCount}</h6>
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1">
                         <div className="col-6 mb-3">
-                          <h6>Days since last jump#</h6>
+                          <h6>Last jump: {lastJump.date}</h6>
                         </div>
                         <div className="col-6 mb-3"></div>
                       </div>

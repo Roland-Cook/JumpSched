@@ -16,7 +16,7 @@ import Login from "./account/Login";
 import Signup from "./account/Signup";
 import Profile from './account/profile';
 import ScheduledJumps from "./scheduledJumps";
-
+import CompletedJumps from "./completedJumps";
 
 function App() {
   const baseUrl = process.env.REACT_APP_API_HOST;
@@ -40,6 +40,7 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/scheduledJumps" element={<ScheduledJumps />} />
+              <Route path="/completedJumps" element={<CompletedJumps />} />
             </Routes>
           </div>
           <Footer />

@@ -117,7 +117,7 @@ const Profile = () => {
                       )}
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1"></div>
-                      
+
                       <h6>Jump Counter: {jumpCount}</h6>
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1">
@@ -129,15 +129,18 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
-                <button type="button" className="btn btn-outline-info">
-                  Completed Jumps
-                </button>
-                <Link to="/scheduledJumps">
-                  <button type="button" className="btn btn-outline-info">
-                    Scheduled Jumps
-                  </button>
-                </Link>
-                
+                <div className="profile-jumps">
+                  <Link to="/completedJumps" >
+                    <button type="button" className="btn btn-outline-info">
+                      Completed Jumps
+                    </button>
+                  </Link>
+                  <Link to="/scheduledJumps">
+                    <button type="button" className="btn btn-outline-info">
+                      Scheduled Jumps
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

@@ -13,10 +13,11 @@ function NavBar() {
 
 
   return (
+
     <Navbar
       className="navbar navbar-expand-lg navbar-dark fixed-top"
-      id="mainNav"
-    >
+      id="mainNav">
+
       <div className="container">
         <NavLink className="navbar-brand" to="/">
           JumpSched
@@ -104,6 +105,7 @@ function NavBar() {
         </div>
       </div>
     </Navbar>
+
   );
 }
 

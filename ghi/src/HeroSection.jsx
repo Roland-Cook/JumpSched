@@ -33,9 +33,22 @@ useEffect(() => {
 }, []);
 
     return (
-    <header className="masthead ">
+        <header className="masthead ">
+    <h2><strong>5-Day Weather Forecast</strong></h2>
+    <div className="h-20 flex flex-wrap mb-10 content-between">
+        {forecastData.map((forecast, index) => (
+            <div key={index} className="flex-grow flex flex-col">
+            <p>Date: {forecast.dt_txt.split('-')[1]}-{forecast.dt_txt.split('-')[2].split(' ')[0]}</p>
+              <p>Temperature: {Math.round(forecast.main.temp * 9/5 +32)}F</p>
+            {forecast.weather.map((weather,index) => (
+            <img key={index} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt="weather-icon" className="w-20 h-20 text-gray-800 dark:text-white mx-auto"/>
+        ))}
+            </div>
+        ))}
+    </div>
+
         <div className="container">
-        <div className="masthead-heading text-uppercase">
+        <div className="masthead-heading text-uppercase mt-5">
             Rocky Mountain Skydive
         </div>
         <div className="masthead-subheading text-uppercase">
@@ -44,18 +57,6 @@ useEffect(() => {
         <Link className="btn btn-primary btn-xl text-uppercase" to="/form">
             Book Now
         </Link>
-        </div>
-        <h2>5-Day Weather Forecast</h2>
-        <div className="h-56 grid grid-cols-5 mb-4 content-between">
-        {forecastData.map((forecast, index) => (
-            <div key={index}>
-            <p>Date: {forecast.dt_txt.split(' ')[0]}</p>
-              <p>Temperature: {(forecast.main.temp * 9/5 +32)}F</p>
-            {forecast.weather.map((weather,index) => (
-            <img key={index} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt="weather-icon" className="w-20 h-20 text-gray-800 ml-48 dark:text-white`"/>
-        ))}
-            </div>
-        ))}
         </div>
     </header>
     );

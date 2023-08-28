@@ -11782,7 +11782,7 @@ footer .widget ul {
   width: 950px;
   border-radius: 25px;
   box-shadow: 0 2px 4px;
-  
+
 }
 
 .faq-info{
@@ -11830,13 +11830,14 @@ margin: 20px;
 /* gallery css */
 
 .gallery {
-  --n: 7; /* number of images */
-  --d: 25s; /* duration */
+  --n: 5; /* number of images */
+  --d: 40s; /* duration */
 
   display: grid;
   overflow: hidden;
   width: 100%;
   mask-image: linear-gradient(90deg, transparent, black 10% 80%, transparent);
+  justify-items: end;
 }
 
 .gallery > img {

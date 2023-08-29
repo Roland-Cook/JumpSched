@@ -1,14 +1,6 @@
 import { Link } from "react-router-dom"
 import React, { useState, useEffect } from 'react';
-import ReactAnimatedWeather from 'react-animated-weather';
 
-console.log(ReactAnimatedWeather)
-const defaults = {
-    icon: 'CLEAR_DAY',
-    color: 'goldenrod',
-    size: 512,
-    animate: true
-  };
 
 
 function HeroSection (){

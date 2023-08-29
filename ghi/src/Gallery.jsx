@@ -15,9 +15,9 @@ function Gallery() {
     <img src={geeser} alt=""/>
     <img src={heli_jump} alt=""/>
     <img src={pull} alt=""/>
-    <img src={sit} alt=""/>
+    {/* <img src={sit} alt=""/> */}
     <img src={tempsnip} alt=""/>
-    <img src={yell} alt=""/>
+    {/* <img src={yell} alt=""/> */}
     <img src={tandem_fun} alt=""/>
         </div>
     )

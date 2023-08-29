@@ -4,8 +4,6 @@ from queries.pool import pool
 from datetime import date,time
 
 
-class Jumper(BaseModel):
-    name:str
 
 class ReservationIn(BaseModel):
     first_name: str
@@ -15,6 +13,7 @@ class ReservationIn(BaseModel):
     jumper_type: str
     date: date
     time: time
+    status: str
 
 class ReservationOut(BaseModel):
     id:int
@@ -25,6 +24,18 @@ class ReservationOut(BaseModel):
     jumper_type: str
     date: date
     time: time
+    status: str
+
+class UpdateStatusIn(BaseModel):
+    status: str
+
+
+class UpdateStatusOut(BaseModel):
+    id: int
+    status: str
+
+
+
 
 class Reservationrepository:
     def create(self, reservation: ReservationIn) -> ReservationOut:
@@ -36,9 +47,9 @@ class Reservationrepository:
                 result =  db.execute(
                          """
                         INSERT INTO reservation
-                            (first_name, last_name, phone_number, email, jumper_type, date, time)
+                            (first_name, last_name, phone_number, email, jumper_type, date, time, status)
                         VALUES
-                            (%s,%s,%s,%s,%s,%s,%s)
+                            (%s,%s,%s,%s,%s,%s,%s,%s)
                         RETURNING id;
                         """,
                         [
@@ -48,13 +59,59 @@ class Reservationrepository:
                             reservation.email,
                             reservation.jumper_type,
                             reservation.date,
-                            reservation.time
+                            reservation.time,
+                            reservation.status,
                         ]
                     )
                 id = result.fetchone()[0]
                 data = reservation.dict()
-                return ReservationOut(id=id, **data)
+                print(result)
+                return ReservationOut(id=id,**data)
                 #return new data
+
+
+
+
+    try:
+        def get(self, id:int) -> ReservationOut:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    result = db.execute(
+                        """
+                        SELECT id, 
+                            first_name, 
+                            last_name, 
+                            phone_number, 
+                            email, 
+                            jumper_type, 
+                            date, 
+                            time, 
+                            status
+                    FROM reservation
+                    WHERE id = %s
+
+                        """,
+                        [id]
+                    )
+                    res = result.fetchone()
+                    if res is None:
+                        return None
+                    reservation = ReservationOut(
+                            id=res[0],
+                            first_name=res[1],
+                            last_name=res[2],
+                            phone_number=res[3],
+                            email=res[4],
+                            jumper_type=res[5],
+                            date=res[6],
+                            time = res[7],
+                            status = res[8]
+                        )
+                    return reservation
+    except Exception as e:
+        print(e)
+
+
 
     def get_all(self) -> Union[Exception, List[ReservationOut]]:
         try:
@@ -65,7 +122,7 @@ class Reservationrepository:
                     # run insert statment
                     result =  db.execute(
                         """
-                        SELECT id, first_name, last_name, phone_number, email, jumper_type, date, time
+                        SELECT id, first_name, last_name, phone_number, email, jumper_type, date, time, status
                         FROM reservation
                         ORDER BY date
                         """
@@ -81,6 +138,7 @@ class Reservationrepository:
                             jumper_type=res[5],
                             date=res[6],
                             time = res[7],
+                            status = res[8]
                         )
                         result.append(reservation)
                     return result
@@ -107,34 +165,35 @@ class Reservationrepository:
             return False
 
 
-    def update(self,reservation_id:int, reservation:ReservationIn) -> ReservationOut:
+    def update(self,reservation_id:int, reservation:UpdateStatusIn) -> UpdateStatusOut:
+        print(reservation,reservation_id)
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
                         UPDATE reservation
-                        SET first_name = %s, last_name = %s, phone_number = %s, email = %s, jumper_type = %s, date = %s, time = %s
+                        SET status = %s
                         WHERE id = %s
                         """,
                         [
-                            reservation.first_name,
-                            reservation.last_name,
-                            reservation.phone_number,
-                            reservation.email,
-                            reservation.jumper_type,
-                            reservation.date,
-                            reservation.time,
-                            reservation_id
+                            reservation.status,
+                            reservation_id,
                         ]
                     )
-                    return self.reservation_in_to_out(reservation_id,reservation)
+                    # data = db.fetchone()
+                    # print(data)
+                    old_data = reservation.dict()
+                    # return self.reservation_in_to_out(reservation_id,reservation)
+                    return UpdateStatusIn(id=reservation_id, **old_data )
+                
+
                     
         except Exception as e:
             print(e)
             return {"MESSAGE:Could not update reservation"}
         
 
-    def reservation_in_to_out(self, id:int, reservation:ReservationIn):
+    def reservation_in_to_out(self, id:int, reservation:UpdateStatusIn):
         old_data = reservation.dict()
         return ReservationOut(id=id, **old_data)

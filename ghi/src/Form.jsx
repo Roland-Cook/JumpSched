@@ -63,6 +63,7 @@ function Form() {
       jumper_type: selectedJumperType,
       date: newDate,
       time: selectedTime,
+      status: "scheduled"
     };
     console.log(formValues);
     try {
@@ -93,7 +94,6 @@ function Form() {
 
   return (
     <>
-
       <div id="myModal" className="modal fade">
         <div className="modal-dialog modal-confirm">
           <div className="modal-content">

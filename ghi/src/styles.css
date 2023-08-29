@@ -12132,3 +12132,25 @@ margin: 20px;
 .location-image img{
 height: 25vh;
 }
+
+.profile-jumps a{
+  opacity: 100 !important;
+  position: none !important;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.profile-jumps button{
+  margin: 20px 0px 0px 120px;
+  width: 400px;
+}
+
+.card a , .card p{
+  position: relative !important;
+}
+
+.title-text{
+  margin-top: 50px;
+}
+

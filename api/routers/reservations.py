@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 # from auth import User, get_current_user
-from queries.reservations import ReservationIn, Reservationrepository, ReservationOut
+from queries.reservations import ReservationIn, UpdateStatusIn,UpdateStatusOut ,Reservationrepository, ReservationOut
 from typing import Optional, List, Union
 
 
@@ -35,6 +35,13 @@ def get_all(
 ):
         return repo.get_all()
 
+@router.get("/reservation/{id}", response_model=ReservationOut)
+def get_reservation(
+        id:int,
+        repo:Reservationrepository = Depends(),
+):
+        return repo.get(id)
+
 @router.delete("/reservation/{reservation_id}", response_model=bool)
 def delete_test(
     reservation_id:int,
@@ -43,12 +50,13 @@ def delete_test(
     return repo.delete_reservation(reservation_id)
 
 
-@router.put("/reservation/{reservation_id}", response_model=ReservationOut)
+@router.put("/reservation/{reservation_id}", response_model=UpdateStatusIn)
 def update_reservation(
        reservation_id:int,
-       reservation:ReservationIn,
+       reservation:UpdateStatusIn,
        repo: Reservationrepository = Depends(),
 ) -> ReservationOut:
+       print("TESTING", reservation.dict())
        return repo.update(reservation_id,reservation)
 
     # query = """

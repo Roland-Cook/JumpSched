@@ -3,10 +3,10 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Form from "./Form";
 import HeroSection from "./HeroSection";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
-import "./styles.css"
+import "./styles.css";
 import Prices from "./prices";
 import FAQ from "./FAQ";
 import Gallery from "./Gallery";
@@ -16,7 +16,7 @@ import Login from "./account/Login";
 import Signup from "./account/Signup";
 import Profile from './account/profile';
 import ScheduledJumps from "./scheduledJumps";
-
+import CompletedJumps from "./completedJumps";
 
 function App() {
   const baseUrl = process.env.REACT_APP_API_HOST;
@@ -40,6 +40,7 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/scheduledJumps" element={<ScheduledJumps />} />
+              <Route path="/completedJumps" element={<CompletedJumps />} />
             </Routes>
           </div>
           <Footer />

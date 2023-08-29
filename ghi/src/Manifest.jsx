@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
+import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 
 function Manifest() {
   const [reservations, setReservations] = useState([]);
   const [sortBy, setSortBy] = useState("date");
+    const { token } = useAuthContext();
 
   useEffect(() => {
     fetchReservations(sortBy);
@@ -94,58 +96,64 @@ function Manifest() {
   console.log(peronalReservations)
 
   return (
-    <div>
-      <h1>Reservations Manifest</h1>
-      <label>Sort by:</label>
-      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-        <option value="date">Date</option>
-        <option value="jumper_type">Jumper Type</option>
-      </select>
-      <table>
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-            <th>Jumper Type</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody className="manifest-table">
-          {sortedReservations.map((reservation) => (
-            <tr key={reservation.id}>
-              <td>{reservation.first_name}</td>
-              <td>{reservation.last_name}</td>
-              <td>{reservation.phone_number}</td>
-              <td>{reservation.email}</td>
-              <td>{reservation.jumper_type}</td>
-              <td>{reservation.date}</td>
-              <td>{reservation.time}</td>
-              <td>
-              <button
-                type="button"
-                className="btn btn-outline-danger"
-                onClick={() => deleteRes(reservation.id)}
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                className="btn btn-outline-success"
-                onClick={() => completeRes(reservation.id)}
-              >
-                Complete
-              </button>
-              </td>
+  <>
+      {token ? (
+        <div>
+          <h1>Reservations Manifest</h1>
+          <label>Sort by:</label>
+          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            <option value="date">Date</option>
+            <option value="jumper_type">Jumper Type</option>
+          </select>
+          <table>
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Jumper Type</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody className="manifest-table">
+              {sortedReservations.map((reservation) => (
+                <tr key={reservation.id}>
+                  <td>{reservation.first_name}</td>
+                  <td>{reservation.last_name}</td>
+                  <td>{reservation.phone_number}</td>
+                  <td>{reservation.email}</td>
+                  <td>{reservation.jumper_type}</td>
+                  <td>{reservation.date}</td>
+                  <td>{reservation.time}</td>
+                  <td>
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger"
+                      onClick={() => deleteRes(reservation.id)}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-success"
+                      onClick={() => completeRes(reservation.id)}
+                    >
+                      Complete
+                    </button>
+                  </td>
 
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div >
+      ) : ( console.log("Nice try goofy")
+      )}
+          </>
+
   );
 }
 

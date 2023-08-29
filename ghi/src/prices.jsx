@@ -9,9 +9,12 @@ function Prices(){
             for any occasion! Call now for the best retail<br/> prices in Colorado!
         </div>
         <prices-table>
+            <table>
             <thead>
-                <th>Activites</th>
-                <th cols="2">Prices</th>
+                <tr>
+                    <th>Activites</th>
+                    <th cols="2">Prices</th>
+                </tr>
             </thead>
             <tbody>
             <tr>
@@ -47,6 +50,7 @@ function Prices(){
                 <td>$3400</td>
             </tr>
             </tbody>
+            </table>
         </prices-table>
     </div>
     )

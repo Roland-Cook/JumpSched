@@ -7,8 +7,8 @@ function FAQ(){
             <div className="faq-info">
             <div className = "faq-box">
             <h2> Here are some of our most frequent questions.</h2>
-            <ul>
-                <li>
+
+                <div>
                     <div><strong>Things to know before arriving:</strong></div>
                     <ul className="answer">
                     <li className="indent"> You must be atleast 18 years old to skydive.</li>
@@ -18,44 +18,44 @@ function FAQ(){
                     <li className="indent">You MUST SIGN the legal waiver.</li>
                     <li className="indent">There is a $50 non-refundable deposit required.</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div>
                     <div><strong>What should I be wearing when I arrive?</strong></div>
                     <ul className="answer">
                     <li className="indent">We reccomend wearing comfortable clothing relative to the season.Pants are preferred</li>
                     <li className="indent">Tennis, running or skate shoes are preferred, NO heels or sandals</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div>
                     <div><strong>Is this sport actually safe?</strong></div>
                     <ul className="answer">
                     <li className="indent">With any adventure sport, there is some inherent risk. Skydiving is no different.</li>
                     <li className="indent">All of our instructor have undergone rigourous training and certification and all parachutes are packed by experienced professionals.</li>
                     <li className="indent">Let us reassure you, your safety is our TOP PRIORITY.</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div>
                     <div><strong> Can I bring my camera on the jump?</strong></div>
                     <ul className="answer">
                     <li className="indent">You can take as many pcitures as you want when you're on the ground, but for saftey reasons you cannot bring your own camera on the jump.</li>
                     <li className="indent">If you would like photos of videos, please consider one of our professional photo/video packages!</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div>
                     <div><strong> How long can I expect to be there?</strong></div>
                     <ul className="answer">
                     <li className="indent">In a perfect world, you will jump within an hour of your reserved time slot.</li>
                     <li className="indent">However, depending on weaather, you should plan to spend atleast half a day to a full day at the dropzone</li>
                     </ul>
-                </li>
-                <li>
+                </div>
+                <div>
                     <div><strong>Do I need a reservation?</strong></div>
                     <ul className="answer">
                     <li className="indent">Reservations are not required but are highly encouraged</li>
                     <li className="indent">if you walk-in, pleasse be prepared to wait atleast half to a full day to get a jump.</li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+
             </div>
             <div className="faq-box">
                 <h1><strong>Want to grab a license?</strong></h1>

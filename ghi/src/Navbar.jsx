@@ -69,7 +69,7 @@ function NavBar() {
                     Manifest
                   </NavLink>
                 </li>
-                <li className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+
                 <li className="nav-item">
                   <NavLink className="nav-link" to="/profile">
                     profile
@@ -82,7 +82,6 @@ function NavBar() {
                   >
                     Logout
                   </button>
-                </li>
               </>
             ) : (
               <div className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">

@@ -118,7 +118,7 @@ function ScheduledJumps() {
                         </thead>
                         <tbody>
                           {reservations
-                            .filter((res) => res.email === account.email)
+                            .filter((res) => res.email === account.email && res.status == "scheduled")
                             .map((reservation) => (
                               <>
                                 <tr className="inner-box">

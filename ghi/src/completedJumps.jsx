@@ -114,7 +114,7 @@ function CompletedJumps() {
                       </thead>
                       <tbody>
                         {reservations
-                          .filter((res) => res.email === account.email)
+                          .filter((res) => res.email === account.email && res.status === "completed")
                           .map((reservation) => (
                             <>
                               <tr className="inner-box">

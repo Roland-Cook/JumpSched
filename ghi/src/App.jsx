@@ -3,10 +3,10 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 import Form from "./Form";
 import HeroSection from "./HeroSection";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./Footer";
 import Testimonials from "./Testimonials";
-import "./styles.css"
+import "./styles.css";
 import Prices from "./prices";
 import FAQ from "./FAQ";
 import Gallery from "./Gallery";

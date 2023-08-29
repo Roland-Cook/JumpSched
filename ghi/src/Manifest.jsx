@@ -25,6 +25,29 @@ function Manifest() {
        })
    };
 
+
+
+  const completeRes = async (reservationId) => {
+    const iUrl = `http://localhost:8000/reservation/${reservationId}`
+
+    const data = {};
+    data.status = "completed";
+    console.log(JSON.stringify(data))
+
+    const fetchConfig2 = {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+          'Content-Type': 'application/json',
+      }
+  }
+    const response2 = await fetch(iUrl, fetchConfig2)
+    console.log(response2)
+
+}
+
+
+
   const fetchReservations = (sortByValue) => {
     fetch(`http://localhost:8000/reservation?sort_by=${sortByValue}`)
       .then((response) => {
@@ -60,13 +83,15 @@ function Manifest() {
     return timeA - timeB;
   };
 
+
+
+
+
   const sortedReservations = [...reservations].sort(customSort);
 
   const peronalReservations = sortedReservations.map(reservation => reservation.email)
 
   console.log(peronalReservations)
-
-
 
   return (
     <div>
@@ -100,10 +125,17 @@ function Manifest() {
               <td>{reservation.time}</td>
               <button
                 type="button"
-                className="btn btn-outline-warning"
+                className="btn btn-outline-danger"
                 onClick={() => deleteRes(reservation.id)}
               >
-                Delete
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-success"
+                onClick={() => completeRes(reservation.id)}
+              >
+                Complete
               </button>
 
             </tr>

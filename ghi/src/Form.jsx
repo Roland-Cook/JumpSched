@@ -63,6 +63,7 @@ function Form() {
       jumper_type: selectedJumperType,
       date: newDate,
       time: selectedTime,
+      status: "scheduled"
     };
     console.log(formValues);
     try {

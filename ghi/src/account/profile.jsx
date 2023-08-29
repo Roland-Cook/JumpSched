@@ -14,7 +14,6 @@ const Profile = () => {
 // reservation logic
 
    async function fetchReservations () {
-
       const response = await fetch("http://localhost:8000/reservation");
 
       if (response.ok) {
@@ -22,21 +21,21 @@ const Profile = () => {
          setReservations(data)
             let count = 0;
             for (var i = 0; i < data.length; i++) {
-              if (data[i].email === account.email) {
+              if (data[i].email === account.email && data[i].status == "completed") {
                 count++;
               }
               setJumpCount(count);
-            }
-                  let personals = [];
-                  for (var j = 0; j < reservations.length; j++) {
-                    if (reservations[j].email === account.email) {
-                      personals.push(reservations[j]);
-                    }
+              
+              let personals = [];
+              for (var j = 0; j < reservations.length; j++) {
+                if (reservations[j].email === account.email ) {
+                  personals.push(reservations[j]);
                   const last = personals[0];
-
-                   setLastJump(last);           
-
-                  }
+                  setLastJump(last);  
+                }
+         
+              }
+            }
       }
     }
       useEffect(() => {
@@ -44,11 +43,7 @@ const Profile = () => {
       }, [reservations]);
 
 
-
-
    // reservation fetch
-
-
   const handleFetchWithAPI = async () => {
     const url = `${process.env.REACT_APP_API_HOST}/token`;
     try {
@@ -117,8 +112,7 @@ const Profile = () => {
                       )}
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1"></div>
-
-                      <h6>Jump Counter: {jumpCount}</h6>
+                      <h6>Jumps Completed: {jumpCount}</h6>
                       <hr className="mt-0 mb-4" />
                       <div className="row pt-1">
                         <div className="col-6 mb-3">

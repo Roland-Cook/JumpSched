@@ -100,7 +100,7 @@ function Testimonials() {
             <div className="-mx-3 md: items-start">
               <div className="px-3 grid grid-cols-3 gap-4">
                 {testimonials.map((testimonial) => (
-                  <>
+                  <>                 
                     <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                       <div className="w-full flex mb-4 items-center">
                         <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">

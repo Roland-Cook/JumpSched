@@ -1,5 +1,5 @@
-import useToken from "@galvanize-inc/jwtdown-for-react";
-import { useState } from "react";
+import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -7,15 +7,21 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { login } = useToken();
   const navigate = useNavigate();
+  const { token } = useAuthContext();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(username,password)
     login(username, password);
     event.target.reset();
-    navigate("/");
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (token) {
+        navigate("/");
+      }
+    }, 0);
+  }, [token]);
   return (
     <div className="row">
       <div className="offset-3 col-6">
@@ -49,7 +55,9 @@ const Login = () => {
               <label htmlFor="password">Password</label>
             </div>
             <div className="text-center">
-              <button className="btn btn-primary" value="login">Login</button>
+              <button className="btn btn-primary" value="login">
+                Login
+              </button>
             </div>
           </form>
         </div>

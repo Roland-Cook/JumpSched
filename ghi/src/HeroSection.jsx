@@ -2,16 +2,16 @@ import { Link } from "react-router-dom"
 import React, { useState, useEffect } from 'react';
 
 
+
 function HeroSection (){
     const [forecastData, setForecastData] = useState([]);
 
+    const apiKey = process.env.OPEN_WEATHER_API_KEY
 
-    const apiKey = "e8180095b41a57e35b2475389e6bea21";
-
-        let weekly = []
+    let weekly = []
 
     const fetchData = async () =>{
-    try {
+        try {
         const response = await fetch (`https://api.openweathermap.org/data/2.5/forecast?lat=40.42&lon=-104.70&units=metric&appid=${apiKey}`)
         const data = await response.json();
 
@@ -21,7 +21,7 @@ function HeroSection (){
         }
         setForecastData(weekly)
 
-        console.log("Weekly",weekly)
+
         }catch(error){
         console.error('Error fetching forecast data', error);
         }

@@ -1,20 +1,31 @@
 import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useToken();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Change the hook name to navigate
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(username,password)
-    login(username, password);
-    event.target.reset();
-    navigate("/");
-  };
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  try {
+    const response = await login(username, password);
+    const token = response?.data?.token; // Adjust this based on the actual structure of the response
+    if (!token) {
+      setIsAuthenticated(true);
+      navigate("/"); // Navigate to home page after successful login
+    } else {
+      console.log("Token not received after login");
+    }
+  } catch (error) {
+    console.log("Login failed", error);
+  }
+};
+
+
 
   return (
     <div className="row">
@@ -49,7 +60,7 @@ const Login = () => {
               <label htmlFor="password">Password</label>
             </div>
             <div className="text-center">
-              <button className="btn btn-primary" value="login">Login</button>
+              <button className="btn btn-primary" type="submit">Login</button>
             </div>
           </form>
         </div>

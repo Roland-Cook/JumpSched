@@ -21,12 +21,13 @@ import ScheduledJumps from "./scheduledJumps";
 function App() {
   const baseUrl = process.env.REACT_APP_API_HOST;
 
+
   return (
     <>
       <BrowserRouter>
         <AuthProvider baseUrl={baseUrl}>
           <Navbar className="container" />
-          <HeroSection />
+          <HeroSection  />
           <div className="app-container">
             <Routes>
               <Route path="/" element={<Home />} />

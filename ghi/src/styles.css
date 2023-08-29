@@ -12186,7 +12186,7 @@ td button{
 th {
   background-color: #F2F2F2;
 }
-tr:hover {
+.manifest-table tr:hover {
   background-color: #F5F5F5;
 }
 button {

@@ -114,7 +114,7 @@ function Manifest() {
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="manifest-table">
           {sortedReservations.map((reservation) => (
             <tr key={reservation.id}>
               <td>{reservation.first_name}</td>

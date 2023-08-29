@@ -12154,3 +12154,49 @@ height: 25vh;
   margin-top: 50px;
 }
 
+
+
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+select {
+  font-size: 16px;
+  padding: 5px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+td button{
+  margin-left: 10px;
+}
+th {
+  background-color: #F2F2F2;
+}
+tr:hover {
+  background-color: #F5F5F5;
+}
+button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #F0AD4E;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover {
+  background-color: #EC971F;
+}

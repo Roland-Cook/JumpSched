@@ -111,6 +111,7 @@ function Manifest() {
             <th>Jumper Type</th>
             <th>Date</th>
             <th>Time</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -123,6 +124,7 @@ function Manifest() {
               <td>{reservation.jumper_type}</td>
               <td>{reservation.date}</td>
               <td>{reservation.time}</td>
+              <td>
               <button
                 type="button"
                 className="btn btn-outline-danger"
@@ -137,6 +139,7 @@ function Manifest() {
               >
                 Complete
               </button>
+              </td>
 
             </tr>
           ))}

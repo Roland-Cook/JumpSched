@@ -1,33 +1,28 @@
-import useToken from "@galvanize-inc/jwtdown-for-react";
+import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate instead of useHistory
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useToken();
-  const navigate = useNavigate(); // Change the hook name to navigate
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
 
-const handleSubmit = async (event) => {
-  event.preventDefault();
-  try {
-    const response = await login(username, password);
-    const token = response?.data?.token; // Adjust this based on the actual structure of the response
-    if (!token) {
-      setIsAuthenticated(true);
-      navigate("/"); // Navigate to home page after successful login
-    } else {
-      console.log("Token not received after login");
+  const { token } = useAuthContext();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await login(username, password);
+    } catch (error) {
+      console.log("Login failed", error);
     }
-  } catch (error) {
-    console.log("Login failed", error);
-  }
-};
-
-
+  };
 
   return (
+    // <>
+    //   {token ? (
+    //     <Navigate to="/" />
+    //   ) : (
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
@@ -60,12 +55,16 @@ const handleSubmit = async (event) => {
               <label htmlFor="password">Password</label>
             </div>
             <div className="text-center">
-              <button className="btn btn-primary" type="submit">Login</button>
+              <button className="btn btn-primary" type="submit">
+                {token ? "Logging in..." : "Login"}
+              </button>
             </div>
           </form>
         </div>
       </div>
     </div>
+    // )}
+    // </>
   );
 };
 

@@ -133,9 +133,10 @@ function Form() {
                     First Name
                   </label>
                   <input
-                    className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    className="w-full rounded-md border border-[#e0e0e0] bg-black py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                     type="text"
                     name="first_name"
+                    placeholder="First Name"
                     required
                   />
                 </div>
@@ -153,6 +154,7 @@ function Form() {
                     type="text"
                     name="last_name"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    placeholder="Last Name"
                     required
                   />
                 </div>
@@ -172,6 +174,7 @@ function Form() {
                     type="text"
                     name="phone_number"
                     className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    placeholder="Phone Number"
                     required
                   />
                 </div>
@@ -190,6 +193,7 @@ function Form() {
                   type="email"
                   name="email"
                   className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                  placeholder="Email Address"
                   required
                 />
               </div>
@@ -198,12 +202,12 @@ function Form() {
             <div className="-mx-3 flex flex-wrap">
               <label
                 htmlFor="jumper_type"
-                className="mb-3 block text-base font-medium text-[#07074D]"
+                className="mb-3 block text-base jumper-text font-medium text-[#07074D]"
               >
                 Jumper Type
               </label>
               <select
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                className="w-full-jumper rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                 name="jumper_type"
                 value={selectedJumperType}
                 onChange={handleJumperTypeChange}

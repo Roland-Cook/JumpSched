@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom"
 import React, { useState, useEffect } from 'react';
+import ReactAnimatedWeather from 'react-animated-weather';
 
+console.log(ReactAnimatedWeather)
+const defaults = {
+    icon: 'CLEAR_DAY',
+    color: 'goldenrod',
+    size: 512,
+    animate: true
+  };
 
 
 function HeroSection (){
@@ -34,18 +42,7 @@ useEffect(() => {
 
     return (
         <header className="masthead ">
-    <h2><strong>5-Day Weather Forecast</strong></h2>
-    <div className="h-20 flex flex-wrap mb-10 content-between">
-        {forecastData.map((forecast, index) => (
-            <div key={index} className="flex-grow flex flex-col">
-            <p>Date: {forecast.dt_txt.split('-')[1]}-{forecast.dt_txt.split('-')[2].split(' ')[0]}</p>
-              <p>Temperature: {Math.round(forecast.main.temp * 9/5 +32)}F</p>
-            {forecast.weather.map((weather,index) => (
-            <img key={index} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt="weather-icon" className="w-20 h-20 text-gray-800 dark:text-white mx-auto"/>
-        ))}
-            </div>
-        ))}
-    </div>
+
 
         <div className="container">
         <div className="masthead-heading text-uppercase mt-5">
@@ -58,6 +55,18 @@ useEffect(() => {
             Book Now
         </Link>
         </div>
+        {/* <h2 className="forecast-title">5-Day Weather Forecast</h2> */}
+        <div className="h-20 flex flex-wrap mb-10 weather-days">
+        {forecastData.map((forecast, index) => (
+            <div key={index} className="flex-grow flex flex-col">
+            <p>Date: {forecast.dt_txt.split('-')[1]}-{forecast.dt_txt.split('-')[2].split(' ')[0]}</p>
+              <p>Temperature: {Math.round(forecast.main.temp * 9/5 +32)}F</p>
+            {forecast.weather.map((weather,index) => (
+            <img key={index} src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt="weather-icon" className="w-20 h-20 text-gray-800 dark:text-white mx-auto"/>
+        ))}
+            </div>
+        ))}
+    </div>
     </header>
     );
 

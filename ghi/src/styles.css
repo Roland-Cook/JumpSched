@@ -647,6 +647,7 @@ progress {
 @media (min-width: 768px) {
   .container-md, .container-sm, .container {
     max-width: 720px;
+    margin-bottom: 40px;
   }
 }
 @media (min-width: 992px) {
@@ -2850,12 +2851,12 @@ textarea.form-control-lg {
   --bs-btn-hover-border-color: #cca000;
   --bs-btn-focus-shadow-rgb: 255, 208, 38;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #cca000;
-  --bs-btn-active-border-color: #bf9600;
+  --bs-btn-active-bg: #31619b;
+  --bs-btn-active-border-color: #3886e8;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #3886e8;
-  --bs-btn-disabled-border-color: #ffc800;
+  --bs-btn-disabled-border-color: #1c3b61;
 }
 
 .btn-secondary {
@@ -8164,7 +8165,7 @@ textarea.form-control-lg {
 
 .bg-black {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-black-rgb), var(--bs-bg-opacity)) !important;
+  background-color: white !important;
 }
 
 
@@ -10991,7 +10992,7 @@ header.masthead .masthead-heading {
     font-size: 4.5rem;
     font-weight: 700;
     line-height: 4.5rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 }
 #portfolio .portfolio-item {
@@ -12199,4 +12200,23 @@ button {
 }
 button:hover {
   background-color: #EC971F;
+}
+
+.weather-days{
+  max-width: 50%;
+  margin: auto auto;
+}
+
+.forecast-title{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.w-full-jumper{
+  width: 97.5% !important;
+  margin-left: 15px !important;
+}
+.jumper-text{
+  margin-left: 20px;
+  
 }

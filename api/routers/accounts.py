@@ -37,7 +37,7 @@ router = APIRouter(
 
 
 
-@router.post("/api/accounts", response_model=AccountToken | HttpError)
+@router.post("/api/accounts", response_model=AccountOut | HttpError)
 async def create_account(
     info: AccountIn,
     request: Request,
@@ -52,9 +52,8 @@ async def create_account(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Cannot create an account with those credentials",
         )
-    form = AccountForm(username=info.email, password=info.password)
-    token = await authenticator.login(response, request, form, accounts)
-    return AccountToken(account=account, **token.dict())
+
+    return AccountOut(**account.dict())
 
 
 @router.get("/accounts/all", response_model=List[AccountOut])

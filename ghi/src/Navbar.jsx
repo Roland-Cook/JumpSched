@@ -14,7 +14,7 @@ function NavBar() {
   return (
 
     <Navbar
-      className="navbar navbar-expand-lg navbar-dark fixed-top"
+      className="navbar navbar-expand-lg navbar-dark"
       id="mainNav">
 
       <div className="container">

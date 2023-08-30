@@ -19,7 +19,9 @@ function HeroSection (){
         for (var i = 0; i < data.list.length; i += 8) {
         weekly.push(data.list[i])
         }
+
         setForecastData(weekly)
+        console.log(weekly)
 
 
         }catch(error){

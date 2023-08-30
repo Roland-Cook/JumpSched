@@ -10916,10 +10916,10 @@ p {
 
 @media (min-width: 992px) {
   #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
     border: none;
-    background-color: transparent;
+    background-color: #212529;
     transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
   }
   #mainNav .navbar-brand {
@@ -12219,4 +12219,8 @@ button:hover {
 .jumper-text{
   margin-left: 20px;
   
+}
+
+.hidden{
+  display: none !important;
 }

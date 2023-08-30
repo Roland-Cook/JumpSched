@@ -226,6 +226,8 @@ function Form() {
                   <label
                     htmlFor="date"
                     className="mb-3 block text-base font-medium text-[#07074D]"
+                    defaultValue={1/1/2023}
+
                   >
                     Date
                   </label>
@@ -236,6 +238,7 @@ function Form() {
                     dateFormat="yyyy/MM/dd"
                     minDate={minDate}
                     maxDate={maxDate}
+                    
                     type="date"
                     filterDate={isAvailableDate}
                     required

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import logo from "./images/rockyLogo.jpg"
 
 function Form() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -94,12 +95,12 @@ function Form() {
 
   return (
     <>
-      <div id="myModal" className="modal fade">
+      <div id="myModal" className="modal fade hidden">
         <div className="modal-dialog modal-confirm">
           <div className="modal-content">
             <div className="modal-header">
               <div className="icon-box">
-                <i className="material-icons">&#xE876;</i>
+                <img src={logo} style={{height:"70px", paddingRight:"10px"}}></img>
               </div>
               <h4 className="modal-title w-100">Awesome!</h4>
             </div>
@@ -110,7 +111,7 @@ function Form() {
             </div>
             <div className="modal-footer">
               <button
-                className="btn btn-success btn-block"
+                className="btn btn-primary btn-block"
                 data-dismiss="modal"
               >
                 OK
@@ -274,7 +275,7 @@ function Form() {
               </div>
             </div>
 
-            <button href="#myModal" data-toggle="modal" className="submitButton" type="submit">
+            <button href="#myModal" data-toggle="modal" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6" type="submit">
               Submit
             </button>
           </form>

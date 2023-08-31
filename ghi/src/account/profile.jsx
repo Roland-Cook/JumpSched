@@ -130,12 +130,12 @@ const Profile = () => {
                       </div>
                     </div>
                     <div className="profile-jumps">
-                      <Link to="/completedJumps">
+                      <Link className="profile-link" to="/completedJumps">
                         <button type="button" className="btn btn-outline-info">
                           Completed Jumps
                         </button>
                       </Link>
-                      <Link to="/scheduledJumps">
+                      <Link className="profile-link" to="/scheduledJumps">
                         <button type="button" className="btn btn-outline-info">
                           Scheduled Jumps
                         </button>

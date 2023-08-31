@@ -2434,7 +2434,7 @@ textarea.form-control-lg {
   text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
-  pointer-events: none;
+  pointer-events: none;`
   border: 1px solid transparent;
   transform-origin: 0 0;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
@@ -11819,9 +11819,12 @@ margin: 20px;
 
 .testimonial-form{
   padding: 10px;
-  border: 2px solid blue;
-  background-color:rgba(80, 137, 250,0.3);
-  width: 350px;
+  border: 2px solid #3888e970;
+  background-color:#3888e930;
+  width: 500px;
+}
+.testimonial-form div textarea:focus,input:focus{
+  outline: 2px solid #3888e970 !important;
 }
 
 .w-full-date{
@@ -12147,13 +12150,16 @@ height: 25vh;
   width: 400px;
 }
 
-.card a , .card p{
+
+.card .profile-link{
   position: relative !important;
 }
 
 .title-text{
   margin-top: 50px;
 }
+
+
 
 
 

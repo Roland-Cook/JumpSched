@@ -44,7 +44,7 @@ function Home() {
               <div className="card-content">
                 <h2>FAQ</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <Link to="/testimonials" className="button">
+                <Link to="/FAQ" className="button">
                   Find out more
                   <icons.ArrowRight style={{ margin: "5px", height: "25px" }} />
                 </Link>
@@ -56,7 +56,7 @@ function Home() {
               <div className="card-content">
                 <h2>Gallery</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <Link to="/testimonials" className="button">
+                <Link to="/gallery" className="button">
                   Find out more
                   <icons.ArrowRight style={{ margin: "5px", height: "25px" }} />
                 </Link>

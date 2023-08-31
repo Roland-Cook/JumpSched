@@ -30,7 +30,46 @@ function ScheduledJumps() {
 
         useEffect(() => {
             fetchReservations();
-        }, []);
+        }, [reservations]);
+
+
+
+
+        const deleteRes = (reservationId) => {
+          fetch(`http://localhost:8000/reservation/${reservationId}`, {
+            method: "DELETE",
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              const updatedReservations = reservations.filter(
+                (reservation) => reservation.id !== reservationId
+              );
+              setReservations(updatedReservations);
+            })
+        };
+     
+     
+     
+       const completeRes = async (reservationId) => {
+         const iUrl = `http://localhost:8000/reservation/${reservationId}`
+     
+         const data = {};
+         data.status = "completed";
+         console.log(JSON.stringify(data))
+     
+         const fetchConfig2 = {
+           method: "PUT",
+           body: JSON.stringify(data),
+           headers: {
+               'Content-Type': 'application/json',
+           }
+       }
+         const response2 = await fetch(iUrl, fetchConfig2)
+         console.log(response2)
+     
+     }
 
 
   const handleFetchWithAPI = async () => {
@@ -114,6 +153,9 @@ function ScheduledJumps() {
                             <th className="text-center" scope="col">
                               Time
                             </th>
+                            <th className="text-center" scope="col">
+                              Status
+                            </th>
                           </tr>
                         </thead>
                         <tbody>
@@ -143,6 +185,22 @@ function ScheduledJumps() {
                                   </td>
                                   <td>
                                     <span>{reservation.time}</span>
+                                  </td>
+                                  <td>
+                                    <button
+                                      type="button"
+                                      className="btn btn-outline-danger"
+                                      onClick={() => deleteRes(reservation.id)}
+                                    >
+                                      Cancel
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="btn btn-outline-success"
+                                      onClick={() => completeRes(reservation.id)}
+                                    >
+                                      Complete
+                                    </button>
                                   </td>
                                 </tr>
                               </>

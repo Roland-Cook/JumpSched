@@ -12,41 +12,6 @@ function Manifest() {
   }, [sortBy]);
 
 
-   const deleteRes = (reservationId) => {
-     fetch(`http://localhost:8000/reservation/${reservationId}`, {
-       method: "DELETE",
-     })
-       .then((response) => {
-         if (!response.ok) {
-           throw new Error("Network response was not ok");
-         }
-         const updatedReservations = reservations.filter(
-           (reservation) => reservation.id !== reservationId
-         );
-         setReservations(updatedReservations);
-       })
-   };
-
-
-
-  const completeRes = async (reservationId) => {
-    const iUrl = `http://localhost:8000/reservation/${reservationId}`
-
-    const data = {};
-    data.status = "completed";
-    console.log(JSON.stringify(data))
-
-    const fetchConfig2 = {
-      method: "PUT",
-      body: JSON.stringify(data),
-      headers: {
-          'Content-Type': 'application/json',
-      }
-  }
-    const response2 = await fetch(iUrl, fetchConfig2)
-    console.log(response2)
-
-}
 
 
 
@@ -129,20 +94,7 @@ function Manifest() {
                   <td>{reservation.date}</td>
                   <td>{reservation.time}</td>
                   <td>
-                    <button
-                      type="button"
-                      className="btn btn-outline-danger"
-                      onClick={() => deleteRes(reservation.id)}
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-outline-success"
-                      onClick={() => completeRes(reservation.id)}
-                    >
-                      Complete
-                    </button>
+                    <h1>{reservation.status}</h1>
                   </td>
 
                 </tr>

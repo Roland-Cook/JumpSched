@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { CompassFill } from "react-bootstrap-icons";
-import JSONPretty from "react-json-pretty";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function CompletedJumps() {
   const [reservations, setReservations] = useState([]);

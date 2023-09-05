@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import JSONPretty from "react-json-pretty";
 import { Link } from "react-router-dom";
-import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 
 const Profile = () => {
   const [userData, setUserData] = useState("");
@@ -9,11 +9,12 @@ const Profile = () => {
    const [reservations, setReservations] = useState([]);
    const [account,setAccount] = useState("")
    const [jumpCount,setJumpCount] = useState(0)
-  const [lastJump, setLastJump] = useState("")
-    const { token } = useAuthContext();
+   const [lastJump, setLastJump] = useState("")
+   const { token } = useAuthContext();
+
+
 
 // reservation logic
-
    async function fetchReservations () {
       const response = await fetch("http://localhost:8000/reservation");
 
@@ -43,9 +44,11 @@ const Profile = () => {
         fetchReservations();
       }, [reservations]);
 
+      
 
-   // reservation fetch
-  const handleFetchWithAPI = async () => {
+
+
+    const handleFetchWithAPI = async () => {
     const url = `${process.env.REACT_APP_API_HOST}/token`;
     try {
       const response = await fetch(url, {
@@ -64,8 +67,6 @@ const Profile = () => {
   useEffect(() => {
     handleFetchWithAPI();
   }, []);
-
-
 
 
 

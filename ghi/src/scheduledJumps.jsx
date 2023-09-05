@@ -1,7 +1,5 @@
 
-import React, { useState, useEffect } from "react";
-import JSONPretty from "react-json-pretty";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function ScheduledJumps() {
 

@@ -1,9 +1,7 @@
-import React from "react";
 import one from "./images/1.jpg";
 import two from "./images/2.png";
 import three from "./images/3.png";
 import * as icons from "react-bootstrap-icons";
-import { NavLink, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./card.scss"
 import AboutUs from "./AboutUs";

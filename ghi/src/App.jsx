@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Home from "./Home";
 import Form from "./Form";
@@ -17,6 +16,10 @@ import Signup from "./account/Signup";
 import Profile from './account/profile';
 import ScheduledJumps from "./scheduledJumps";
 import CompletedJumps from "./completedJumps";
+
+
+
+
 
 function App() {
   const baseUrl = process.env.REACT_APP_API_HOST;

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import useToken, { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
+import { useState, useEffect } from "react";
+import { useAuthContext } from "@galvanize-inc/jwtdown-for-react";
 
 
 function Testimonials() {

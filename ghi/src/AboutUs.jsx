@@ -1,5 +1,3 @@
-import two from "./images/12.png";
-import six from "./images/12.png";
 import "./styles.css"
 
 function AboutUs() {
@@ -17,7 +15,6 @@ function AboutUs() {
                   height="315"
                   src="https://www.youtube.com/embed/qjmlyvBm8Js?si=uYSmvUncqN13fdMX"
                   title="YouTube video player"
-                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                 ></iframe>
               </div>

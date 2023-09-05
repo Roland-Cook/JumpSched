@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 
@@ -32,7 +32,7 @@ function HeroSection (){
 
 useEffect(() => {
     fetchData();
-}, []);
+});
 
     return (
         <header className="masthead ">

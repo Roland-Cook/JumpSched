@@ -82,7 +82,7 @@ function Testimonials() {
                 className="text-xl mb-5 font-light"
                 style={{ color: "#3989ec" }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              
               </h3>
               <div className="text-center mb-10">
                 <span className="inline-block w-1 h-1 rounded-full bg-indigo-500 ml-1"></span>
@@ -96,7 +96,7 @@ function Testimonials() {
             <div className="-mx-3 md: items-start">
               <div className="px-3 grid grid-cols-3 gap-4">
                 {testimonials.map((testimonial) => (
-                  <>                 
+                  <>
                     <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                       <div className="w-full flex mb-4 items-center">
                         <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
@@ -129,7 +129,7 @@ function Testimonials() {
             </div>
           </div>
           <div>
-            
+
             {token ? (
               <>
             <div className="add-testimonials mt-8">
@@ -173,7 +173,7 @@ function Testimonials() {
             </>
             ): (
               <h6></h6>
-            )}     
+            )}
           </div>
         </div>
       </div>

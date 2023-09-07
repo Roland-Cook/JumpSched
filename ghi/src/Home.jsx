@@ -20,7 +20,7 @@ function Home() {
               Services
             </h2>
             <h3 className="section-subheading" style={{ color: "white" }}>
-              Lorem ipsum dolor sit amet consectetur.
+              Feel free to look around!
             </h3>
           </div>
 
@@ -29,7 +29,7 @@ function Home() {
               <img src={one} alt=""></img>
               <div className="card-content">
                 <h2>Testimonials</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>See what past jumpers have had to say about their time!</p>
                 <Link to="/testimonials" className="button">
                   Find out more
                   <icons.ArrowRight style={{ margin: "5px", height: "25px" }} />
@@ -41,7 +41,7 @@ function Home() {
               <img src={two} alt="" />
               <div className="card-content">
                 <h2>FAQ</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Some basic info about the sport and our programs.</p>
                 <Link to="/FAQ" className="button">
                   Find out more
                   <icons.ArrowRight style={{ margin: "5px", height: "25px" }} />
@@ -53,9 +53,9 @@ function Home() {
               <img src={three} alt="" />
               <div className="card-content">
                 <h2>Gallery</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Look how much fun we are having!</p>
                 <Link to="/gallery" className="button">
-                  Find out more
+                  Take a look!
                   <icons.ArrowRight style={{ margin: "5px", height: "25px" }} />
                 </Link>
               </div>

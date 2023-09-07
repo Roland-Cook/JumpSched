@@ -8,7 +8,7 @@ function Footer() {
           <div className="text-center">
             <h2 className="section-heading text-uppercase">Contact Us</h2>
             <h3 className="section-subheading text-muted">
-              Lorem ipsum dolor sit amet consectetur.
+              Have some Questions? Just want to chat? Reach out!.
             </h3>
           </div>
           <form id="contactForm" data-sb-form-api-token="API_TOKEN">

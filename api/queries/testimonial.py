@@ -1,5 +1,5 @@
 from queries.pool import pool
-from typing import Optional, List, Union
+from typing import List, Union
 from pydantic import BaseModel
 
 class TestimonialIn(BaseModel):
@@ -16,9 +16,7 @@ class TestimonialOut(BaseModel):
 
 class Testimonialrepository:
     def create(self,testimonial: TestimonialIn)-> TestimonialOut:
-        # connect to db
         with pool.connection() as conn:
-            # get cursor
             with conn.cursor() as db:
                 result= db.execute(
                         """
@@ -41,12 +39,8 @@ class Testimonialrepository:
 
     def get_all_test(self) -> Union[Exception, List[TestimonialOut]]:
         try:
-            print("roland")
-            #connect to database
             with pool.connection() as conn:
-                #get cursor
                 with conn.cursor() as db:
-                    #run insert statement
                     result = db.execute(
                         """
                         SELECT id, Full_Name, description, rating
@@ -56,7 +50,6 @@ class Testimonialrepository:
                         )
                     result = []
                     for res in db:
-                        print("RESULTTTTT:",result)
                         testimonial = TestimonialOut(
                             id=res[0],
                             Full_Name=res[1],
@@ -64,7 +57,6 @@ class Testimonialrepository:
                             rating=res[3],
                         )
                         result.append(testimonial)
-                        print("RESULTTTTT:",result)
                     return result
         except Exception as e:
             return{"message": "Could not find testimonials"}

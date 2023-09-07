@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from queries.testimonial import TestimonialIn, Testimonialrepository, TestimonialOut
-from typing import Optional, List, Union
+from typing import List
 
 router = APIRouter(
     tags = ['testimonial']

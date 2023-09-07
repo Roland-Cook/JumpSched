@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional, List, Union
+from typing import List, Union
 from queries.pool import pool
 from datetime import date,time
 
@@ -39,11 +39,8 @@ class UpdateStatusOut(BaseModel):
 
 class Reservationrepository:
     def create(self, reservation: ReservationIn) -> ReservationOut:
-        # connect to database
         with pool.connection() as conn:
-            # get cursor
             with conn.cursor() as db:
-                # run insert statment
                 result =  db.execute(
                          """
                         INSERT INTO reservation
@@ -67,7 +64,6 @@ class Reservationrepository:
                 data = reservation.dict()
                 print(result)
                 return ReservationOut(id=id,**data)
-                #return new data
 
 
 
@@ -78,14 +74,14 @@ class Reservationrepository:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, 
-                            first_name, 
-                            last_name, 
-                            phone_number, 
-                            email, 
-                            jumper_type, 
-                            date, 
-                            time, 
+                        SELECT id,
+                            first_name,
+                            last_name,
+                            phone_number,
+                            email,
+                            jumper_type,
+                            date,
+                            time,
                             status
                     FROM reservation
                     WHERE id = %s
@@ -115,11 +111,8 @@ class Reservationrepository:
 
     def get_all(self) -> Union[Exception, List[ReservationOut]]:
         try:
-           # connect to database
             with pool.connection() as conn:
-                # get cursor
                 with conn.cursor() as db:
-                    # run insert statment
                     result =  db.execute(
                         """
                         SELECT id, first_name, last_name, phone_number, email, jumper_type, date, time, status
@@ -142,7 +135,7 @@ class Reservationrepository:
                         )
                         result.append(reservation)
                     return result
-                    #return new data
+
         except Exception as e:
             print(e)
             return {"message": "Could not get all reservatons"}
@@ -181,18 +174,15 @@ class Reservationrepository:
                             reservation_id,
                         ]
                     )
-                    # data = db.fetchone()
-                    # print(data)
                     old_data = reservation.dict()
-                    # return self.reservation_in_to_out(reservation_id,reservation)
                     return UpdateStatusIn(id=reservation_id, **old_data )
-                
 
-                    
+
+
         except Exception as e:
             print(e)
             return {"MESSAGE:Could not update reservation"}
-        
+
 
     def reservation_in_to_out(self, id:int, reservation:UpdateStatusIn):
         old_data = reservation.dict()

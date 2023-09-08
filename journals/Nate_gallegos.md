@@ -71,4 +71,8 @@ met with the group to go over any other requirements for the project grade, go o
 9/7/2023
 
 Met with group to go over entire project one more time. Go through the entire site to find spelling errors, any links that are missing or malfunctioning, pages slow to load
-anything that we would deem less than ideal for deployment or the presentation. 
+anything that we would deem less than ideal for deployment or the presentation.
+
+---
+
+9/8/2023

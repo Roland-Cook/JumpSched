@@ -7,6 +7,9 @@ function Form() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState("09:00"); // Initialize with a default time
   const [selectedJumperType, setSelectedJumperType] = useState(""); // Initialize with an empty value
+  const [appointment,setAppointment] = useState("")
+
+  console.log("Appointment Status",appointment.status)
 
 
   const handleDateChange = (date) => {
@@ -74,11 +77,12 @@ function Form() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formValues),
+        
       });
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Success:", result);
+        setAppointment(response)
         // Reset form after successful submission
         setSelectedDate(null);
         setSelectedTime("09:00");
@@ -95,12 +99,17 @@ function Form() {
 
   return (
     <>
-      <div id="myModal" className="modal fade">
+      <div
+        className={`modal  ${appointment.status === 200 ? "myModal" : "myModal"} fade`}
+      >
         <div className="modal-dialog modal-confirm">
           <div className="modal-content">
             <div className="modal-header">
               <div className="icon-box">
-                <img src={logo} style={{height:"70px", paddingRight:"10px"}}></img>
+                <img
+                  src={logo}
+                  style={{ height: "70px", paddingRight: "10px" }}
+                ></img>
               </div>
               <h4 className="modal-title w-100">Awesome!</h4>
             </div>
@@ -227,8 +236,7 @@ function Form() {
                   <label
                     htmlFor="date"
                     className="mb-3 block text-base font-medium text-[#07074D]"
-                    defaultValue={1/1/2023}
-
+                    defaultValue={1 / 1 / 2023}
                   >
                     Date
                   </label>
@@ -239,7 +247,6 @@ function Form() {
                     dateFormat="yyyy/MM/dd"
                     minDate={minDate}
                     maxDate={maxDate}
-                    
                     type="date"
                     filterDate={isAvailableDate}
                     required
@@ -275,7 +282,12 @@ function Form() {
               </div>
             </div>
 
-            <button href="#myModal" data-toggle="modal" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6" type="submit">
+            <button
+              href=".myModal"
+              data-toggle="modal"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-6"
+              type="submit"
+            >
               Submit
             </button>
           </form>

@@ -32,10 +32,9 @@ const Profile = () => {
               for (var j = 0; j < reservations.length; j++) {
                 if (reservations[j].email === account.email ) {
                   personals.push(reservations[j]);
-                  const last = personals[0];
+                  const last = personals[personals.length-1];
                   setLastJump(last);
                 }
-
               }
             }
       }

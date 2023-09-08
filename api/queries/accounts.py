@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from queries.pool import pool
-from typing import List, Union
+from typing import List, Union, Optional
 
 class DuplicateAccountError(ValueError):
     pass
@@ -12,6 +12,7 @@ class AccountIn(BaseModel):
     last_name: str
     email: str
     username: str
+    profile_image:Optional[str]
 
 class AccountOut(BaseModel):
     id: str
@@ -19,9 +20,12 @@ class AccountOut(BaseModel):
     last_name: str
     email: str
     username: str
+    profile_image:Optional[str]
 
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
+    profile_image:Optional[str]
+
 
 
 class AccountQueries:
@@ -36,7 +40,8 @@ class AccountQueries:
                             last_name,
                             hashed_password,
                             email,
-                            username
+                            username,
+                            profile_image
                     FROM account
                     WHERE email = %s
                         """,
@@ -51,7 +56,8 @@ class AccountQueries:
                             last_name=record[2],
                             hashed_password=record[3],
                             email=record[4],
-                            username=record[5]
+                            username=record[5],
+                            profile_image=record[6]
                         )
                     return account
     except Exception as e:
@@ -63,9 +69,9 @@ class AccountQueries:
                 result = db.execute(
                         """
                     INSERT INTO account
-                        (first_name, last_name, email, hashed_password, username)
+                        (first_name, last_name, email, hashed_password, username, profile_image)
                     VALUES
-                        (%s,%s,%s,%s,%s)
+                        (%s,%s,%s,%s,%s,%s)
                     RETURNING id;
                     """,
                     [
@@ -74,6 +80,7 @@ class AccountQueries:
                         account.email,
                         hashed_password,
                         account.username,
+                        account.profile_image
                     ]
                 )
                 id = result.fetchone()[0]
@@ -87,7 +94,7 @@ class AccountQueries:
                 with conn.cursor() as db:
                     result = db.execute(
                         """
-                        SELECT id, first_name, last_name, email, hashed_password, username
+                        SELECT id, first_name, last_name, email, hashed_password, username, profile_image
                         FROM account
                         ORDER BY first_name
                         """
@@ -100,7 +107,8 @@ class AccountQueries:
                             last_name=record[2],
                             email=record[3],
                             hashed_password=record[4],
-                            username=record[5]
+                            username=record[5],
+                            profile_image=record[6]
                         )
                         result.append(account)
                     return result

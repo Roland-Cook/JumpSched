@@ -12,8 +12,7 @@ const Profile = () => {
    const [lastJump, setLastJump] = useState("")
    const { token } = useAuthContext();
 
-
-
+   console.log(reservations)
 // reservation logic
    async function fetchReservations () {
       const response = await fetch("http://localhost:8000/reservation");
@@ -30,7 +29,7 @@ const Profile = () => {
 
               let personals = [];
               for (var j = 0; j < reservations.length; j++) {
-                if (reservations[j].email === account.email ) {
+                if (reservations[j].email === account.email && reservations[j].status == "completed" ) {
                   personals.push(reservations[j]);
                   const last = personals[personals.length-1];
                   setLastJump(last);
@@ -89,15 +88,19 @@ const Profile = () => {
                         className="col-md-4 gradient-custom text-center text-white"
                         style={{ width: "100px", height: "100px" }}
                       >
+                        {isLoading ? (
+                        <p>Loading...</p> 
+                        ) : (
                         <img
-                          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                          src={userData.account.profile_image}
                           style={{
                             width: "100px",
                             height: "100px",
                             marginTop: "10px",
-                          }}
+                        }}
                         />
-                      </div>
+                        )}
+                        </div>
                       <div className="col-md-8">
                         <div
                           className="card-body p-4 "

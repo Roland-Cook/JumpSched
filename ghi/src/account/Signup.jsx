@@ -20,6 +20,7 @@ const Signup = () => {
       email: email,
       last_name: last_name,
       first_name: first_name,
+      profile_image:"https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
     };
     register(userData, `http://localhost:8000/api/accounts`);
     event.target.reset();

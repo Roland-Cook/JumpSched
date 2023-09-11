@@ -27,15 +27,12 @@ We are targeting business owners that run their own drop zones, we provide a bet
   - The prices page to allows customers to see the price of every service offered. 
 - Users can also see testimonials left by other users. Logged in users can see testimonials and the form allowing them to create their own.
 - Reservation page that allows any user to book a jump. The logged in users who book can see those jumps on their profile page and also mark the jump as completed or cancelled.
-- Manifest page lets logged in users see every jump and its status, this allows for the user and the business to better book jumps.
+- Manifest page lets logged in users see every jump and its status, this allows for the user and the business to better schedule jumps.
 - Accounts
 - Logged in users can add new testimonials, view/update their scheduled jumps.
 - About Section with company info, contact info.
 - Social Media Links/Contact at the footer
 - Main Page allows visitors to see the 5 day weather forecast. Main page also includes more information about the business including a contact us and a company video. Also includes links to other services.
-- The cart features products that was added from the product page
-  - update quantity with an increment and decrement counter
-  - can checkout and will populate the order end point
 
 
 ## Project Initialization

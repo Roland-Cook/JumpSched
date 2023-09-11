@@ -100,13 +100,12 @@ function ScheduledJumps() {
               <div className="col-lg-12">
                 <div className="section-title text-center">
                   <div className="title-text">
-                    <h2>Event Schedule</h2>
                   </div>
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Natus numquam, ut amet eligendi quibusdam velit. Possimus
-                    tempora quaerat quibusdam repudiandae culpa saepe
-                    architecto, officia explicabo dolor sint, quo placeat id.
+                    Are you ready to take the plunge and experience the
+                    exhilarating thrill of freefalling from the skies? JumpSched is your ultimate tool to plan,
+                    organize, and book unforgettable skydiving jumps that will
+                    leave you breathless and craving for more!
                     <br />
                   </p>
                 </div>
@@ -158,7 +157,11 @@ function ScheduledJumps() {
                         </thead>
                         <tbody>
                           {reservations
-                            .filter((res) => res.email === account.email && res.status == "scheduled")
+                            .filter(
+                              (res) =>
+                                res.email === account.email &&
+                                res.status == "scheduled"
+                            )
                             .map((reservation) => (
                               <>
                                 <tr className="inner-box">
@@ -195,7 +198,9 @@ function ScheduledJumps() {
                                     <button
                                       type="button"
                                       className="btn btn-outline-success"
-                                      onClick={() => completeRes(reservation.id)}
+                                      onClick={() =>
+                                        completeRes(reservation.id)
+                                      }
                                     >
                                       Complete
                                     </button>

@@ -87,8 +87,7 @@ function Footer() {
               <div className="text-center text-white mb-3">
                 <div className="fw-bolder">Form submission successful!</div>
                 <br />
-                <a href="https://startbootstrap.com/solution/contact-forms">
-                </a>
+                <a href="https://startbootstrap.com/solution/contact-forms"></a>
               </div>
             </div>
             <div className="d-none" id="submitErrorMessage">
@@ -116,26 +115,29 @@ function Footer() {
             </div>
             <div className="col-lg-4 my-3 my-lg-0">
               <a
+                target="__blank"
                 className="btn btn-dark btn-social mx-2"
-                href="#!"
+                href="https://twitter.com/"
                 aria-label="Twitter"
               >
                 <icons.Twitter />
               </a>
               <a
+                target="__blank"
                 className="btn btn-dark btn-social mx-2"
-                href="#!"
+                href="https://www.facebook.com/ColoradoSkydive/"
                 aria-label="Facebook"
               >
                 <icons.Facebook />
               </a>
               <a
+                target="__blank"
                 className="btn btn-dark btn-social mx-2"
-                href="#!"
+                href="https://www.linkedin.com/"
                 aria-label="LinkedIn"
               >
                 <i className="fab fa-linkedin-in"></i>
-                <icons.Linkedin/>
+                <icons.Linkedin />
               </a>
             </div>
             <div className="col-lg-4 text-lg-end">

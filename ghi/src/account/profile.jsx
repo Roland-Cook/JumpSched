@@ -30,8 +30,8 @@ const Profile = () => {
 
               let personals = [];
               for (var j = 0; j < reservations.length; j++) {
-                if (reservations[j].email === account.email ) {
-                  personals.push(reservations[j]);
+                if (reservations[j].email === account.email && reservations[j].status == "completed" ) { 
+                   personals.push(reservations[j]);
                   const last = personals[0];
                   setLastJump(last);
                 }

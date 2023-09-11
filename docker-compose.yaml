@@ -62,6 +62,7 @@ services:
 
 volumes:
   postgres_data:
+  user-data:
 
   pg-admin:
     external: true

@@ -21,7 +21,7 @@ function HeroSection (){
         }
 
         setForecastData(weekly)
-        console.log(weekly)
+        
 
 
         }catch(error){

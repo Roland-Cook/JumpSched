@@ -5,6 +5,12 @@ from routers import reservations, accounts, testimonial
 import os
 
 
+origins =[
+    "Http://localhost:3000",
+    os.environ.get("CORS_HOST", None),
+]
+
+
 app = FastAPI()
 
 app.add_middleware(

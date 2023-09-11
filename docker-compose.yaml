@@ -48,6 +48,18 @@ services:
       REACT_APP_API_HOST: ${REACT_APP_API_HOST}
       OPEN_WEATHER_API_KEY: ${OPEN_WEATHER_API_KEY}
 
+
+  user_db:
+    image: postgres:14.2-bullseye
+    volumes:
+      - user-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: admin
+      POSTGRES_DB: jumpsched
+    ports:
+      - 15432:5432
+
 volumes:
   postgres_data:
 

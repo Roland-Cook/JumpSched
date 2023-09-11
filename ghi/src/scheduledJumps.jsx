@@ -18,7 +18,6 @@ function ScheduledJumps() {
             return response.json();
         })
         .then((data) => {
-            console.log(data);
             setReservations(data);
         })
         .catch((error) => {
@@ -54,9 +53,7 @@ function ScheduledJumps() {
          const iUrl = `http://localhost:8000/reservation/${reservationId}`
      
          const data = {};
-         data.status = "completed";
-         console.log(JSON.stringify(data))
-     
+         data.status = "completed";     
          const fetchConfig2 = {
            method: "PUT",
            body: JSON.stringify(data),
@@ -65,7 +62,6 @@ function ScheduledJumps() {
            }
        }
          const response2 = await fetch(iUrl, fetchConfig2)
-         console.log(response2)
      
      }
 
@@ -77,7 +73,6 @@ function ScheduledJumps() {
         credentials: "include",
       });
       const data = await response.json();
-      console.log(data.account);
       setAccount(data.account);
       setTimeout(() => {
         setUserData(data);

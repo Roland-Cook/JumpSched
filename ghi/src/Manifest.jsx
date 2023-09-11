@@ -24,7 +24,6 @@ function Manifest() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setReservations(data);
       })
       .catch((error) => {
@@ -58,7 +57,6 @@ function Manifest() {
 
   const peronalReservations = sortedReservations.map(reservation => reservation.email)
 
-  console.log(peronalReservations)
 
   return (
   <>
@@ -102,7 +100,7 @@ function Manifest() {
             </tbody>
           </table>
         </div >
-      ) : ( console.log("Nice try goofy")
+      ) : ( console.error("Nice try goofy")
       )}
           </>
 

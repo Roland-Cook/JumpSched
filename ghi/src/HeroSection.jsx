@@ -21,8 +21,6 @@ function HeroSection (){
         }
 
         setForecastData(weekly)
-        console.log(weekly)
-
 
         }catch(error){
         console.error('Error fetching forecast data', error);

@@ -54,7 +54,6 @@ function Testimonials() {
       },
     };
     const response = await fetch(Url, fetchConfig);
-    console.log(response)
 
 
     if(response.ok){

@@ -67,7 +67,7 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        console.log("Nice try goofy")
+        console.error("Nice try goofy")
       )}
     </>
   );

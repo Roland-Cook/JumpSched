@@ -15,7 +15,6 @@ function CompletedJumps() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setReservations(data);
       })
       .catch((error) => {
@@ -34,7 +33,6 @@ function CompletedJumps() {
         credentials: "include",
       });
       const data = await response.json();
-      console.log(data.account);
       setAccount(data.account);
       setTimeout(() => {
         setUserData(data);

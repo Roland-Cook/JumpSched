@@ -149,7 +149,7 @@ const Profile = () => {
           </section>
         </div>
       ) : (
-        console.log("Nice try goofy")
+        console.error("Nice try goofy")
       )}
     </>
   );

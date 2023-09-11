@@ -66,7 +66,6 @@ function Form() {
       time: selectedTime,
       status: "scheduled"
     };
-    console.log(formValues);
     try {
       const response = await fetch("http://localhost:8000/reservation", {
         method: "POST",
@@ -78,7 +77,6 @@ function Form() {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Success:", result);
         // Reset form after successful submission
         setSelectedDate(null);
         setSelectedTime("09:00");

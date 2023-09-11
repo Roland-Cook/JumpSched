@@ -14,7 +14,7 @@ JumpSched is a project designed to allow users to signup for a skydive, and allo
 input: None
 
 output:[{
-    
+
     "id": 0,
     "first_name": "string",
     "last_name": "string",
@@ -34,7 +34,7 @@ This endpoint retrieves a list of all scheduled reservations.
   POST /reservation
 ```
 input: {
-    
+
     "first_name": "string",
     "last_name": "string",
     "phone_number": "string",
@@ -46,7 +46,7 @@ input: {
   }
 
 output: {
-    
+
     "id":int
     "first_name": "string",
     "last_name": "string",
@@ -56,7 +56,7 @@ output: {
     "date": "2023-09-08",
     "time": "string",
     "status": "string"
-    
+
 }
 
 This endpoint creates a reservation on the backend and saves the first and last name, phone number, email, jumper type, date, time of reservation and a default status and assigns an ID.
@@ -70,7 +70,7 @@ This endpoint creates a reservation on the backend and saves the first and last 
 input:None
 
 output: {
-    
+
     "id": 0,
     "first_name": "string",
     "last_name": "string",
@@ -85,14 +85,14 @@ output: {
 #### update reservation
 ```http
   PUT/reservation/{reservation_id}
-``` 
+```
 input: {
-    
+
     "status":"string"
 }
 
 output:{
-    
+
     "status":"string"
 }
 
@@ -106,7 +106,7 @@ This updates the reservation from the default status. The options are canceled o
 ####Create ACCOUNT
 
 input: {
-    
+
     "password": "string",
     "first_name": "string",
     "last_name": "string",
@@ -115,7 +115,7 @@ input: {
 }
 
 output: {
-    
+
     "id": int,
     "first_name": "string",
     "last_name": "string",
@@ -131,7 +131,7 @@ input: None
 output:
 
 [{
-    
+
     "id": "string",
     "first_name": "string",
     "last_name": "string",
@@ -149,7 +149,7 @@ input: None
 output:
 
 {
-    
+
     "id": "string",
     "first_name": "string",
     "last_name": "string",
@@ -170,7 +170,7 @@ output: bool
     POST  /token
 ```
 request shape(form):
-    
+
     email:"email"
     password:"string"
 
@@ -179,7 +179,7 @@ response: access token and token type
 Response shape(JSON):
 
 {
-    
+
     "access_token": "string",
     "token_type": "Bearer"
 }
@@ -208,7 +208,7 @@ input: None
 output:
 
 [{
-    
+
     "id": 0,
     "Full_Name": "string",
     "description": "string",
@@ -219,16 +219,16 @@ output:
 ```http
     POST/tesimonial
 ```
-input: 
+input:
 
 {
-    
+
     "Full_Name": "string",
     "description": "string",
     "rating": 0
 }
 
-output: 
+output:
 {
     "content":"string"
   }
@@ -236,11 +236,10 @@ output:
 ```http
     Delete /testimonial/{testimonial_id}
 ```
-Response: deletes testimonial 
+Response: deletes testimonial
 
 Response Shape(JSON):
 
 {
-    
+
     "message": boolean
-}

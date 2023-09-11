@@ -12007,18 +12007,7 @@ margin: 20px;
 .event-schedule-area-two ul.custom-tab li a:hover:before {
     width: 100%;
 }
-.event-schedule-area-two ul.custom-tab li a:before {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    content: "";
-    background: #4125dd;
-    width: 0;
-    height: 2px;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    transition: all 0.4s;
-}
+
 .event-schedule-area-two ul.custom-tab li a.active {
     color: #4125dd;
 }

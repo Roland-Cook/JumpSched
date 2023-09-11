@@ -10,11 +10,7 @@ function NavBar() {
 
 
   return (
-
-    <Navbar
-      className="navbar navbar-expand-lg navbar-dark"
-      id="mainNav">
-
+    <Navbar className="navbar navbar-expand-lg navbar-dark" id="mainNav">
       <div className="container">
         <NavLink className="navbar-brand" to="/">
           JumpSched
@@ -73,13 +69,11 @@ function NavBar() {
                     profile
                   </NavLink>
                 </li>
-                  <button
-                    className="nav-link"
-                    style={{ color: "white" }}
-                    onClick={logout}
-                  >
+                <li className="nav-item">
+                  <NavLink className="nav-link" onClick={logout}>
                     Logout
-                  </button>
+                  </NavLink>
+                </li>
               </>
             ) : (
               <div className="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
@@ -101,7 +95,6 @@ function NavBar() {
         </div>
       </div>
     </Navbar>
-
   );
 }
 

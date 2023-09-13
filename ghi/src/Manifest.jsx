@@ -55,8 +55,6 @@ function Manifest() {
 
   const sortedReservations = [...reservations].sort(customSort);
 
-  const personalReservations = sortedReservations.map(reservation => reservation.email)
-
 
   return (
   <>

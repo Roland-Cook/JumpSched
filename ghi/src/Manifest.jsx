@@ -55,7 +55,7 @@ function Manifest() {
 
   const sortedReservations = [...reservations].sort(customSort);
 
-  const peronalReservations = sortedReservations.map(reservation => reservation.email)
+  const personalReservations = sortedReservations.map(reservation => reservation.email)
 
 
   return (
@@ -73,8 +73,6 @@ function Manifest() {
               <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Phone Number</th>
-                <th>Email</th>
                 <th>Jumper Type</th>
                 <th>Date</th>
                 <th>Time</th>
@@ -86,15 +84,12 @@ function Manifest() {
                 <tr key={reservation.id}>
                   <td>{reservation.first_name}</td>
                   <td>{reservation.last_name}</td>
-                  <td>{reservation.phone_number}</td>
-                  <td>{reservation.email}</td>
                   <td>{reservation.jumper_type}</td>
                   <td>{reservation.date}</td>
                   <td>{reservation.time}</td>
                   <td>
                     <h1>{reservation.status}</h1>
                   </td>
-
                 </tr>
               ))}
             </tbody>

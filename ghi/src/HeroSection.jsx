@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 
 function HeroSection (){
+    
     const [forecastData, setForecastData] = useState([]);
 
     const apiKey = process.env.OPEN_WEATHER_API_KEY
@@ -19,7 +20,6 @@ function HeroSection (){
         for (var i = 0; i < data.list.length; i += 8) {
         weekly.push(data.list[i])
         }
-
         setForecastData(weekly)
 
         }catch(error){
@@ -33,7 +33,7 @@ useEffect(() => {
 });
 
     return (
-        <header className="masthead ">
+        <header className="masthead">
 
 
         <div className="container">

@@ -88,7 +88,7 @@ To fully enjoy this application on your local machine, please make sure to follo
 
 ![alternate text](images/completedJumps.png)
 
-### These changes will immediately be reflected on the profiles page.
+### These changes will immediately be reflected on the profile page.
 
 ![alternate text](images/updatedProfile.png)
 

@@ -1,7 +1,6 @@
 ## Project Documentation
 
 
-
 # JumpSched
 
 - Nate Gallegos
@@ -11,6 +10,7 @@
 
 We created a full stack app that allows users to sign-up for skyidives. We created some other pages for the site that display pricing, common questions, and a gallery on a carousel.
 The team also created components that allow users to create an account, view the manifest for a given day. We also thought it a good idea to create a profile for the user that allows them to cancel their jumps, or finish their jumps depending. The completed jumps will display a list of only "completed" jumps.
+We've also implemented the open weather api to display a 5 day forecast to better help customers schedule jumps. 
 
 ## Design
 
@@ -48,3 +48,62 @@ To fully enjoy this application on your local machine, please make sure to follo
 6. Run `docker exec -it module3-project-gamma-fastapi-1 bash`
 7. Run  `python -m migrations up`
 8. Exit the container's CLI, and enjoy JumpSched!
+
+
+
+
+<h1> After the initialization is completed, users will have access to all the features outlined in the functionality section </h1>
+
+
+
+### Users can fill out a form to signup for an account. 
+
+![alternate text](images/signup.png)
+
+
+
+### After users signup they are redirected to the login page. After the user is logged in they will have access to more features.
+
+![alternate text](images/login.png)
+
+### The navbar is updated to include the manifest, profile and the logout button. 
+
+![alternate text](images/updatednav.png)
+
+### Users can book jumps by navigating to the reservations page
+
+![alternate text](images/Reservation.png)
+
+### Filling out this form lets users book a jump. This jump shows up on the manifest page and it also shows up in their profile's scheduled jumps page. The manifest can be sorted by date and jump type to help with scheduling.
+
+![alternate text](images/manifest.png)
+
+### The profiles page has the users account details, how many jumps were marked as completed and the date of the last jump they've completed. To mark these jumps as completed or to cancel a jump users can go to their profile.
+
+![alternate text](images/profile.png)
+
+### Click on scheduled jumps, this will show all the jumps that were booked along with the status that can be changed to completed or cancelled. Choosing either of these options will remove that jump from this page. Cancel will delete the jump and completed will move it to completed jumps.
+
+![alternate text](images/scheduledJumps.png)
+
+![alternate text](images/completedJumps.png)
+
+### These changes will immediately be reflected on the profile page.
+
+![alternate text](images/updatedProfile.png)
+
+
+### Users can also see all the testimonials that were created, logged in users have the extra capability to add their own testimonial.
+
+![alternate text](images/testimonials.png)
+
+
+
+## Technologies 
+HTML, CSS, JavaSript, Python, React, FastApi, SASS, Bootstrap, Tailwind, PostgreSQL
+
+## Project status
+Still being worked on, The features that we wanted to add are done. The only thing left is to make this application mobile responsive via media quieries. 
+
+
+

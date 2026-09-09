@@ -105,4 +105,4 @@ HTML, CSS, JavaSript, Python, React, FastApi, SASS, Bootstrap, Tailwind, Postgre
 ## Project status
 
 
-![FAQ Demo](https://i.postimg.cc/bwNq3rHX/FAQ.gif)
+![alternate text](images/Home.gif)

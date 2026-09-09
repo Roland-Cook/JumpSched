@@ -103,7 +103,6 @@ To fully enjoy this application on your local machine, please make sure to follo
 HTML, CSS, JavaSript, Python, React, FastApi, SASS, Bootstrap, Tailwind, PostgreSQL
 
 ## Project status
-Still being worked on, The features that we wanted to add are done. The only thing left is to make this application mobile responsive via media quieries. 
 
 
-
+![FAQ Demo](https://i.postimg.cc/bwNq3rHX/FAQ.gif)

@@ -102,7 +102,15 @@ To fully enjoy this application on your local machine, please make sure to follo
 ## Technologies 
 HTML, CSS, JavaSript, Python, React, FastApi, SASS, Bootstrap, Tailwind, PostgreSQL
 
-## Project status
 
+## Media Queries
 
 ![alternate text](images/Home(1).gif)
+
+![alternate text](images/FAQ(1).gif)
+
+![alternate text](images/Reservation.gif)
+
+## Project status
+Complete
+
